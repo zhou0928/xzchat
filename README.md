@@ -1,11 +1,13 @@
-# xzChat (Original xiaozhou-chat)
+# xzChat
 
 <div align="center">
 
-![NPM Version](https://img.shields.io/npm/v/xzChat?style=flat-square&color=blue)
-![License](https://img.shields.io/npm/l/xzChat?style=flat-square&color=green)
-![Node Version](https://img.shields.io/node/v/xzChat?style=flat-square)
-![Downloads](https://img.shields.io/npm/dm/xzChat?style=flat-square)
+![NPM Version](https://img.shields.io/npm/v/xzchat?style=flat-square&color=blue)
+![License](https://img.shields.io/npm/l/xzchat?style=flat-square&color=green)
+![Node Version](https://img.shields.io/node/v/xzchat?style=flat-square)
+![Downloads](https://img.shields.io/npm/dm/xzchat?style=flat-square)
+![Build Status](https://img.shields.io/github/actions/workflow/status/zhou0928/xzchat/test.yml?style=flat-square)
+![Coverage](https://img.shields.io/codecov/c/github/zhou0928/xzchat?style=flat-square)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 
 **🚀 全能命令行 AI 助手，专为开发者打造。**

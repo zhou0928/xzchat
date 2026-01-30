@@ -1,19 +1,20 @@
 # Dependencies
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
-# Build output
+# Production builds
 dist/
-release/
+build/
+out/
 
-# Logs
-*.log
-logs/
-*.log.*
-
-# Environment files
-.env
-.env.local
-.env.*.local
+# Coverage
+coverage/
+*.lcov
 
 # IDE
 .vscode/
@@ -21,29 +22,98 @@ logs/
 *.swp
 *.swo
 *~
-
-# OS
 .DS_Store
-Thumbs.db
 
-# Test coverage
-coverage/
+# Environment variables
+.env
+.env.local
+.env.*.local
 
-# Session and history files
-.newapi-chat-history.json
-.sessions/
-.cost-stats/
-.cost-stats-test/
-.branches/
+# Logs
+*.log
+logs/
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Testing
+.nyc_output/
+test-results/
+
+# Cache
+.cache/
+.parcel-cache/
+.vite/
+.eslintcache
+
+# Misc
+*.pid
+*.seed
+*.pid.lock
+lib-cov
+pids
+*.tsbuildinfo
 
 # Temporary files
+tmp/
+temp/
 *.tmp
+
+# User data
+.newapi-chat-config.json
+.newapi-chat-history.json
+.xzchat-notes.json
+.newapi-chat-logs/
+
+# OS generated files
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Plugin cache
+.plugins-cache/
+plugin-backups/
+
+# Release
+release/
+*.dmg
+*.exe
+*.app
+
+# Test output
+test-output.log
+test-all-plugins.js
+test-plugins-quick.js
+test-plugins-fixed.js
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/snippets/
+
+# Local development
+.local
+.vscode-test/
+
+# npm
+.npm
+.npmrc.local
+
+# Backup files
 *.bak
+*.backup
+*~
 
-# Package manager
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-
-# Build artifacts
-*.tsbuildinfo
+# Archives
+*.tar.gz
+*.zip
+*.tgz

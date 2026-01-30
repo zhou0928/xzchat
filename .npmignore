@@ -1,11 +1,98 @@
+# Files and directories to ignore when publishing to npm
+
+# Source files (only publish compiled if applicable)
+src/
+
+# Tests
+tests/
+test/
+*.test.js
+*.spec.js
+test-*.js
+
+# Documentation (optional - remove if you want to publish docs)
+docs/
+*.md
+!README.md
+!CHANGELOG.md
+!LICENSE
+
+# Examples
+examples/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Development
+.git/
+.gitignore
+.npmignore
+.editorconfig
+.eslintrc*
+.prettierrc*
+
+# Logs
+*.log
+logs/
+test-output.log
+
+# Coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+*.env.local
+
+# User data
 .newapi-chat-config.json
 .newapi-chat-history.json
-newapi-chat.config.json
-newapi-chat-history.md
-node_modules
-dist
-.DS_Store
-dist
-vscode-extension
-test
-*.log
+.xzchat-notes.json
+.newapi-chat-logs/
+
+# Plugin cache
+.plugins-cache/
+plugin-backups/
+
+# Release files
+dist/
+release/
+*.dmg
+*.exe
+*.app
+
+# Test scripts
+test-plugins-*.js
+test-all-plugins.js
+
+# Lock files (npm publishes its own)
+package-lock.json
+
+# Misc
+*.md
+!README.md
+!CHANGELOG.md
+!LICENSE
+
+# Vite/Vitest
+.vitest/
+vitest.config.local.js
+
+# Additional development files
+PLUGINS_TEST_REPORT.md
+PUBLISH_GUIDE.md
