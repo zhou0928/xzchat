@@ -83,6 +83,12 @@ import { handleWeb } from "./web.js";
 // 插件系统导入
 import { handlePlugin } from "./plugin.js";
 
+// 新增功能导入
+import { handleExportCommand } from "./export.js";
+import { handleFindCommand } from "./find.js";
+import { handleAliasCommand } from "./alias.js";
+import { handlePromptCommand } from "./prompt.js";
+
 /**
  * 命令定义
  * 使用命令模式，每个命令都有统一的接口
@@ -741,6 +747,41 @@ export function createDefaultRegistry() {
     description: '插件管理',
     category: 'plugin',
     handler: async (input, context) => await handlePlugin(input.split(' ').slice(1))
+  }));
+
+  // ========== 新增功能：对话导出 ==========
+  registry.register(new Command({
+    name: '/export',
+    aliases: ['/save', 'export'],
+    description: '导出对话历史为 Markdown 或 JSON',
+    category: 'utility',
+    handler: async (input, context) => await handleExportCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：对话搜索 ==========
+  registry.register(new Command({
+    name: '/find',
+    aliases: ['/search', 'grep'],
+    description: '在历史对话中搜索内容',
+    category: 'utility',
+    handler: async (input, context) => await handleFindCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：命令别名 ==========
+  registry.register(new Command({
+    name: '/alias',
+    description: '管理命令别名',
+    category: 'utility',
+    handler: async (input, context) => await handleAliasCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：预设提示词 ==========
+  registry.register(new Command({
+    name: '/prompt',
+    aliases: ['/preset', '/template'],
+    description: '管理预设提示词',
+    category: 'utility',
+    handler: async (input, context) => await handlePromptCommand(input.split(' ').slice(1), context)
   }));
 
   return registry;

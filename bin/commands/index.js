@@ -22,6 +22,10 @@ export * from "./mcp.js";
 export * from "./rag.js";
 export * from "./voice.js";
 export * from "./advanced.js";
+export * from "./export.js";
+export * from "./find.js";
+export * from "./alias.js";
+export * from "./prompt.js";
 
 /**
  * 导出命令注册表（供外部使用）
