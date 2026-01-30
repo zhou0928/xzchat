@@ -1,0 +1,148 @@
+{
+  "name": "English",
+  "commands": {
+    "session": {
+      "summary": "Manage sessions",
+      "subcommands": {
+        "list": "List all sessions",
+        "use": "/session use <name|index> - Switch to specified session",
+        "new": "/session new <name> - Create and switch to new session",
+        "delete": "/session delete <name> - Delete session",
+        "clone": "/session clone <src> <tgt> - Clone session",
+        "search": "/session search <keyword> - Search content across all sessions",
+        "export": "/session export <name> [format] - Export session (md/json/txt)"
+      },
+      "tips": [
+        "Use numeric index to quickly switch sessions",
+        "Default session cannot be deleted, but can be cleared with /clear",
+        "Supports searching across all session history"
+      ]
+    },
+    "branch": {
+      "summary": "Manage conversation branches",
+      "subcommands": {
+        "list": "/branch list - List all branches",
+        "create": "/branch create <desc> - Create new branch",
+        "switch": "/branch switch <id> - Switch to specified branch",
+        "delete": "/branch delete <id> - Delete branch",
+        "compare": "/branch compare <id1> <id2> - Compare two branches",
+        "merge": "/branch merge <src> <dst> - Merge branches",
+        "tree": "/branch tree - Show branch tree structure",
+        "cleanup": "/branch cleanup - Clean up orphaned branches"
+      },
+      "tips": [
+        "Branches can be created at any point in the conversation",
+        "Supports parallel exploration of different implementation approaches",
+        "Different merge modes available"
+      ]
+    },
+    "help": {
+      "summary": "Display help information"
+    }
+  },
+  "errors": {
+    "unknown_command": "Unknown command, use /help to see available commands",
+    "invalid_arguments": "Invalid arguments, please check command format",
+    "missing_argument": "Missing required argument",
+    "operation_cancelled": "Operation cancelled",
+    "operation_failed": "Operation failed",
+    "file_not_found": "File not found",
+    "file_access_denied": "File access denied",
+    "file_too_large": "File too large, automatically truncated",
+    "invalid_path": "Invalid path format",
+    "sensitive_file": "⚠️  This is a sensitive file, please confirm to continue",
+    "git_not_found": "Current directory is not a Git repository",
+    "git_no_changes": "No code changes detected",
+    "git_commit_failed": "Git commit failed",
+    "git_diff_failed": "Failed to get Git changes",
+    "session_not_found": "Session not found",
+    "session_delete_current": "Cannot delete the current session",
+    "session_delete_default": "Cannot delete the default session",
+    "session_invalid_index": "Session index out of range",
+    "branch_not_found": "Branch not found",
+    "branch_delete_current": "Cannot delete current branch",
+    "branch_merge_failed": "Branch merge failed",
+    "config_not_found": "Configuration item not found",
+    "config_invalid_value": "Invalid configuration value",
+    "config_load_failed": "Failed to load configuration",
+    "network_error": "Network connection failed",
+    "api_error": "API call failed",
+    "rate_limited": "⚠️  API rate limit, please try again later",
+    "timeout": "Request timeout",
+    "index_not_found": "Index not found, please run /index first",
+    "index_failed": "Index creation failed",
+    "search_failed": "Search failed",
+    "invalid_api_key": "Invalid API Key format",
+    "invalid_url": "Invalid URL format",
+    "invalid_model": "Invalid model name",
+    "empty_input": "Input cannot be empty",
+    "input_too_long": "Input too long, automatically truncated",
+    "permission_denied": "Permission denied",
+    "operation_not_allowed": "Operation not allowed"
+  },
+  "success": {
+    "session_created": "✅ Session created: {name}",
+    "session_switched": "✅ Switched to session: {name} (messages: {count})",
+    "session_deleted": "✅ Session deleted: {name}",
+    "session_cloned": "✅ Session cloned: {src} → {tgt}",
+    "session_cleared": "✅ Current session cleared",
+    "branch_created": "✅ Branch created: {id}",
+    "branch_switched": "✅ Switched to branch: {id}",
+    "branch_deleted": "✅ Branch deleted: {id}",
+    "branch_merged": "✅ Branch merged: {src} → {dst}",
+    "file_loaded": "✅ File loaded: {file}",
+    "file_saved": "✅ File saved: {file}",
+    "file_opened": "✅ Opened: {file}",
+    "git_committed": "✅ Commit successful!",
+    "git_staged": "✅ All changes staged",
+    "index_created": "✅ Indexing complete! {chunks} chunks",
+    "search_completed": "✅ Search complete, found {count} results",
+    "config_updated": "✅ Configuration updated: {key} = {value}",
+    "config_loaded": "✅ Configuration loaded",
+    "undone": "✅ Undo complete",
+    "retried": "✅ Retry complete",
+    "continued": "✅ Generation continued"
+  },
+  "warnings": {
+    "large_file": "⚠️  Large file (~{size} KB), may affect performance",
+    "large_project": "⚠️  Large project structure (~{tokens} tokens), load anyway?",
+    "no_api_key": "⚠️  API Key not configured, please set it first",
+    "no_changes": "⚠️  No changes detected",
+    "expired_cache": "⚠️  Cache expired",
+    "partial_failure": "⚠️  Partial operation failed",
+    "slow_response": "⚠️  Slow response, please wait"
+  },
+  "info": {
+    "loading": "📥 Loading...",
+    "saving": "💾 Saving...",
+    "processing": "⏳ Processing...",
+    "searching": "🔍 Searching...",
+    "thinking": "🤔 Thinking...",
+    "generating": "🤖 Generating...",
+    "analyzing": "🔬 Analyzing...",
+    "indexing": "📚 Indexing...",
+    "fetching": "🌐 Fetching data...",
+    "waiting": "⏸️  Waiting..."
+  },
+  "ui": {
+    "welcome": "Welcome to xzChat!",
+    "version": "Version {version}",
+    "prompt": "You",
+    "assistant": "Assistant",
+    "exit": "Exited",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "yes": "Yes",
+    "no": "No",
+    "language_set": "Language set to {language}",
+    "language_not_supported": "Unsupported language: {language}",
+    "available_languages": "Available languages: {languages}"
+  },
+  "time": {
+    "just_now": "just now",
+    "seconds_ago": "{seconds} seconds ago",
+    "minutes_ago": "{minutes} minutes ago",
+    "hours_ago": "{hours} hours ago",
+    "days_ago": "{days} days ago"
+  }
+}

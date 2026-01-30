@@ -1,0 +1,11 @@
+{
+  "name": "example-timer",
+  "version": "1.0.0",
+  "description": "A simple timer plugin for xzChat",
+  "author": "xzChat Team",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "keywords": ["xzchat", "plugin", "timer"],
+  "category": "utility"
+}

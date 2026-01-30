@@ -1,0 +1,11 @@
+{
+  "name": "search",
+  "version": "1.0.0",
+  "description": "多平台搜索插件，支持Google、Bing等",
+  "author": "xzChat Team",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "category": "utility",
+  "keywords": ["xzchat", "plugin", "search", "google", "bing"]
+}

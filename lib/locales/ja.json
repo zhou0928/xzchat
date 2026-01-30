@@ -1,0 +1,148 @@
+{
+  "name": "日本語",
+  "commands": {
+    "session": {
+      "summary": "セッション管理",
+      "subcommands": {
+        "list": "すべてのセッションを表示",
+        "use": "/session use <name|index> - 指定したセッションに切り替え",
+        "new": "/session new <name> - 新しいセッションを作成して切り替え",
+        "delete": "/session delete <name> - セッションを削除",
+        "clone": "/session clone <src> <tgt> - セッションをクローン",
+        "search": "/session search <keyword> - すべてのセッションのコンテンツを検索",
+        "export": "/session export <name> [format] - セッションをエクスポート (md/json/txt)"
+      },
+      "tips": [
+        "数値インデックスを使用してセッションを素早く切り替え",
+        "デフォルトセッションは削除できませんが、/clearでクリアできます",
+        "すべてのセッション履歴を検索できます"
+      ]
+    },
+    "branch": {
+      "summary": "会話ブランチ管理",
+      "subcommands": {
+        "list": "/branch list - すべてのブランチを表示",
+        "create": "/branch create <desc> - 新しいブランチを作成",
+        "switch": "/branch switch <id> - 指定したブランチに切り替え",
+        "delete": "/branch delete <id> - ブランチを削除",
+        "compare": "/branch compare <id1> <id2> - 2つのブランチを比較",
+        "merge": "/branch merge <src> <dst> - ブランチをマージ",
+        "tree": "/branch tree - ブランチツリー構造を表示",
+        "cleanup": "/branch cleanup - 孤立したブランチをクリーンアップ"
+      },
+      "tips": [
+        "会話の任意のポイントでブランチを作成できます",
+        "異なる実装アプローチの並列探索をサポート",
+        "異なるマージモードが利用可能です"
+      ]
+    },
+    "help": {
+      "summary": "ヘルプ情報を表示"
+    }
+  },
+  "errors": {
+    "unknown_command": "不明なコマンド、/help で利用可能なコマンドを確認してください",
+    "invalid_arguments": "無効な引数、コマンド形式を確認してください",
+    "missing_argument": "必須引数が不足しています",
+    "operation_cancelled": "操作がキャンセルされました",
+    "operation_failed": "操作が失敗しました",
+    "file_not_found": "ファイルが見つかりません",
+    "file_access_denied": "ファイルへのアクセスが拒否されました",
+    "file_too_large": "ファイルが大きすぎます、自動的に切り詰められました",
+    "invalid_path": "無効なパス形式",
+    "sensitive_file": "⚠️  これは機密ファイルです、続行するか確認してください",
+    "git_not_found": "現在のディレクトリはGitリポジトリではありません",
+    "git_no_changes": "コードの変更が検出されませんでした",
+    "git_commit_failed": "Gitコミットが失敗しました",
+    "git_diff_failed": "Gitの変更の取得に失敗しました",
+    "session_not_found": "セッションが見つかりません",
+    "session_delete_current": "現在のセッションは削除できません",
+    "session_delete_default": "デフォルトセッションは削除できません",
+    "session_invalid_index": "セッションインデックスが範囲外です",
+    "branch_not_found": "ブランチが見つかりません",
+    "branch_delete_current": "現在のブランチは削除できません",
+    "branch_merge_failed": "ブランチのマージが失敗しました",
+    "config_not_found": "設定項目が見つかりません",
+    "config_invalid_value": "無効な設定値",
+    "config_load_failed": "設定の読み込みに失敗しました",
+    "network_error": "ネットワーク接続が失敗しました",
+    "api_error": "API呼び出しが失敗しました",
+    "rate_limited": "⚠️  APIレート制限、後でもう一度お試しください",
+    "timeout": "リクエストがタイムアウトしました",
+    "index_not_found": "インデックスが見つかりません、最初に /index を実行してください",
+    "index_failed": "インデックスの作成に失敗しました",
+    "search_failed": "検索が失敗しました",
+    "invalid_api_key": "無効なAPIキー形式",
+    "invalid_url": "無効なURL形式",
+    "invalid_model": "無効なモデル名",
+    "empty_input": "入力を空にすることはできません",
+    "input_too_long": "入力が長すぎます、自動的に切り詰められました",
+    "permission_denied": "権限が拒否されました",
+    "operation_not_allowed": "この操作は許可されていません"
+  },
+  "success": {
+    "session_created": "✅ セッションが作成されました: {name}",
+    "session_switched": "✅ セッションに切り替えました: {name} (メッセージ数: {count})",
+    "session_deleted": "✅ セッションを削除しました: {name}",
+    "session_cloned": "✅ セッションをクローンしました: {src} → {tgt}",
+    "session_cleared": "✅ 現在のセッションをクリアしました",
+    "branch_created": "✅ ブランチが作成されました: {id}",
+    "branch_switched": "✅ ブランチに切り替えました: {id}",
+    "branch_deleted": "✅ ブランチを削除しました: {id}",
+    "branch_merged": "✅ ブランチをマージしました: {src} → {dst}",
+    "file_loaded": "✅ ファイルを読み込みました: {file}",
+    "file_saved": "✅ ファイルを保存しました: {file}",
+    "file_opened": "✅ 開きました: {file}",
+    "git_committed": "✅ コミット成功!",
+    "git_staged": "✅ すべての変更をステージしました",
+    "index_created": "✅ インデックス作成完了! {chunks} チャンク",
+    "search_completed": "✅ 検索完了、{count} 件の結果が見つかりました",
+    "config_updated": "✅ 設定を更新しました: {key} = {value}",
+    "config_loaded": "✅ 設定を読み込みました",
+    "undone": "✅ 元に戻しました",
+    "retried": "✅ 再試行しました",
+    "continued": "✅ 生成を続行しました"
+  },
+  "warnings": {
+    "large_file": "⚠️  大きなファイル (~{size} KB)、パフォーマンスに影響する可能性があります",
+    "large_project": "⚠️  大きなプロジェクト構造 (~{tokens} トークン)、読み込みますか?",
+    "no_api_key": "⚠️  APIキーが設定されていません、先に設定してください",
+    "no_changes": "⚠️  変更が検出されませんでした",
+    "expired_cache": "⚠️  キャッシュが期限切れです",
+    "partial_failure": "⚠️  一部の操作が失敗しました",
+    "slow_response": "⚠️  レスポンスが遅いです、お待ちください"
+  },
+  "info": {
+    "loading": "📥 読み込み中...",
+    "saving": "💾 保存中...",
+    "processing": "⏳ 処理中...",
+    "searching": "🔍 検索中...",
+    "thinking": "🤔 考え中...",
+    "generating": "🤖 生成中...",
+    "analyzing": "🔬 分析中...",
+    "indexing": "📚 インデックス作成中...",
+    "fetching": "🌐 データ取得中...",
+    "waiting": "⏸️  待機中..."
+  },
+  "ui": {
+    "welcome": "xzChatへようこそ!",
+    "version": "バージョン {version}",
+    "prompt": "あなた",
+    "assistant": "アシスタント",
+    "exit": "終了しました",
+    "confirm": "確認",
+    "cancel": "キャンセル",
+    "yes": "はい",
+    "no": "いいえ",
+    "language_set": "言語を {language} に設定しました",
+    "language_not_supported": "サポートされていない言語: {language}",
+    "available_languages": "利用可能な言語: {languages}"
+  },
+  "time": {
+    "just_now": "たった今",
+    "seconds_ago": "{seconds}秒前",
+    "minutes_ago": "{minutes}分前",
+    "hours_ago": "{hours}時間前",
+    "days_ago": "{days}日前"
+  }
+}

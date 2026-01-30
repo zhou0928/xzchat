@@ -1,0 +1,11 @@
+{
+  "name": "translator",
+  "version": "1.0.0",
+  "description": "多语言翻译插件，支持多种语言互译",
+  "author": "xzChat Team",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "category": "utility",
+  "keywords": ["xzchat", "plugin", "translator", "translation"]
+}

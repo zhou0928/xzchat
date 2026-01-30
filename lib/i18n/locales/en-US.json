@@ -1,0 +1,222 @@
+{
+  "app": {
+    "name": "xzChat",
+    "version": "Version",
+    "welcome": "Welcome to xzChat",
+    "description": "Powerful AI Assistant"
+  },
+  "locales": {
+    "zh-CN": "简体中文",
+    "en-US": "English"
+  },
+  "commands": {
+    "session": {
+      "summary": "Manage sessions",
+      "subcommands": {
+        "list": "List all sessions",
+        "use": "Switch to specified session",
+        "new": "Create and switch to new session",
+        "delete": "Delete session",
+        "clone": "Clone session",
+        "search": "Search content across all sessions",
+        "export": "Export session (md/json/txt)"
+      },
+      "examples": [
+        "/session list",
+        "/session use 1",
+        "/session new feature-x",
+        "/session search API"
+      ],
+      "tips": [
+        "Use numeric index to quickly switch sessions",
+        "Default session cannot be deleted but can be cleared with /clear",
+        "Supports searching across all session history"
+      ]
+    },
+    "branch": {
+      "summary": "Manage conversation branches",
+      "subcommands": {
+        "list": "List all branches",
+        "create": "Create new branch",
+        "switch": "Switch to specified branch",
+        "delete": "Delete branch",
+        "compare": "Compare two branches",
+        "merge": "Merge branches",
+        "tree": "Display branch tree structure",
+        "cleanup": "Clean up orphaned branches"
+      },
+      "examples": [
+        "/branch create try new approach",
+        "/branch list",
+        "/branch compare branch_1 branch_2",
+        "/branch merge branch_1 main"
+      ],
+      "tips": [
+        "Branches can be created at any point in the conversation",
+        "Supports parallel exploration of different solutions",
+        "Different merge modes are available"
+      ]
+    },
+    "file": {
+      "load": {
+        "summary": "Load file into context",
+        "usage": "/load [file]",
+        "tips": [
+          "Interactive file selection when no file specified",
+          "Shows file size and type",
+          "Security warning for sensitive files"
+        ]
+      },
+      "open": {
+        "summary": "Open file with default program",
+        "usage": "/open <file>"
+      },
+      "save": {
+        "summary": "Save conversation to file",
+        "usage": "/save <filename>"
+      }
+    },
+    "git": {
+      "summary": "Git operations",
+      "subcommands": {
+        "status": "View Git status",
+        "log": "View commit history",
+        "diff": "View file differences"
+      }
+    },
+    "config": {
+      "summary": "Configuration management",
+      "subcommands": {
+        "init": "Initialize configuration",
+        "show": "Show current configuration",
+        "set": "Set configuration value",
+        "language": "Set language"
+      }
+    },
+    "help": {
+      "summary": "Display help information",
+      "usage": "/help [command]"
+    },
+    "clear": {
+      "summary": "Clear current session"
+    },
+    "exit": {
+      "summary": "Exit program"
+    },
+    "token": {
+      "summary": "Token usage statistics",
+      "subcommands": {
+        "show": "Display current usage",
+        "reset": "Reset statistics"
+      }
+    }
+  },
+  "messages": {
+    "error": {
+      "unknown": "An unknown error occurred",
+      "notFound": "Not found: {{item}}",
+      "invalid": "Invalid input",
+      "permission": "Permission denied",
+      "network": "Network error",
+      "timeout": "Request timeout"
+    },
+    "success": {
+      "saved": "Saved successfully",
+      "deleted": "Deleted successfully",
+      "created": "Created successfully",
+      "updated": "Updated successfully"
+    },
+    "warning": {
+      "unsaved": "Unsaved changes",
+      "overwrite": "File will be overwritten"
+    },
+    "info": {
+      "loading": "Loading...",
+      "processing": "Processing..."
+    }
+  },
+  "session": {
+    "created": "Session '{{name}}' created",
+    "deleted": "Session '{{name}}' deleted",
+    "switched": "Switched to session '{{name}}'",
+    "cloned": "Session cloned from '{{src}}' to '{{tgt}}'",
+    "searchResults": "Found {{count}} results",
+    "exported": "Session exported to {{file}}"
+  },
+  "branch": {
+    "created": "Branch '{{name}}' created",
+    "deleted": "Branch '{{id}}' deleted",
+    "switched": "Switched to branch '{{id}}'",
+    "merged": "Branch '{{src}}' merged to '{{dst}}'",
+    "comparison": "Branch comparison results",
+    "tree": "Branch tree structure"
+  },
+  "file": {
+    "loaded": "File '{{file}}' loaded",
+    "notFound": "File not found: {{file}}",
+    "saved": "Content saved to {{file}}",
+    "openFailed": "Cannot open file: {{file}}"
+  },
+  "config": {
+    "initialized": "Configuration initialized",
+    "updated": "Configuration updated",
+    "languageChanged": "Language changed to {{language}}",
+    "invalidValue": "Invalid configuration value: {{value}}"
+  },
+  "keybindings": {
+    "clear": "Clear screen (Ctrl+L)",
+    "clearLine": "Clear current line (Ctrl+R)",
+    "deleteToStart": "Delete to start of line (Ctrl+U)",
+    "deleteToEnd": "Delete to end of line (Ctrl+K)",
+    "home": "Jump to start of line (Ctrl+A)",
+    "end": "Jump to end of line (Ctrl+E)",
+    "deleteWord": "Delete previous word (Ctrl+W)",
+    "wordLeft": "Previous word (Alt+Left)",
+    "wordRight": "Next word (Alt+Right)",
+    "historyUp": "History up (↑)",
+    "historyDown": "History down (↓)",
+    "interrupt": "Interrupt/Exit (Ctrl+C)",
+    "exit": "Exit (Ctrl+D)",
+    "escape": "Interrupt/Clear line (Esc)"
+  },
+  "plugins": {
+    "loaded": "Plugin '{{name}}' loaded",
+    "unloaded": "Plugin '{{name}}' unloaded",
+    "enabled": "Plugin '{{name}}' enabled",
+    "disabled": "Plugin '{{name}}' disabled",
+    "error": "Plugin error: {{error}}",
+    "notFound": "Plugin not found: {{name}}"
+  },
+  "ui": {
+    "prompt": "Enter your message",
+    "continue": "Continue",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "back": "Back",
+    "exit": "Exit",
+    "search": "Search",
+    "select": "Select",
+    "loading": "Loading..."
+  },
+  "time": {
+    "justNow": "Just now",
+    "minutesAgo": "{{count}} minute(s) ago",
+    "hoursAgo": "{{count}} hour(s) ago",
+    "daysAgo": "{{count}} day(s) ago",
+    "today": "Today",
+    "yesterday": "Yesterday"
+  },
+  "validation": {
+    "required": "This field is required",
+    "minLength": "Minimum {{min}} characters required",
+    "maxLength": "Maximum {{max}} characters allowed",
+    "pattern": "Invalid format"
+  },
+  "stats": {
+    "messages": "Messages",
+    "tokens": "Tokens",
+    "cost": "Cost",
+    "sessions": "Sessions",
+    "branches": "Branches"
+  }
+}

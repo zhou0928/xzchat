@@ -1,0 +1,11 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "功能强大的计算器插件，支持基本运算和科学计算",
+  "author": "xzChat Team",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "category": "utility",
+  "keywords": ["xzchat", "plugin", "calculator", "math"]
+}

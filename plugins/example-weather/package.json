@@ -1,0 +1,11 @@
+{
+  "name": "example-weather",
+  "version": "1.0.0",
+  "description": "Weather information plugin for xzChat",
+  "author": "xzChat Team",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "keywords": ["xzchat", "plugin", "weather"],
+  "category": "information"
+}

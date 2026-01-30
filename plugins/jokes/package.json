@@ -1,0 +1,11 @@
+{
+  "name": "jokes",
+  "version": "1.0.0",
+  "description": "获取各种笑话和趣味内容",
+  "author": "xzChat Team",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "category": "entertainment",
+  "keywords": ["xzchat", "plugin", "jokes", "fun"]
+}

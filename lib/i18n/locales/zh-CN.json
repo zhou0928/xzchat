@@ -1,0 +1,222 @@
+{
+  "app": {
+    "name": "xzChat",
+    "version": "版本",
+    "welcome": "欢迎使用 xzChat",
+    "description": "强大的AI对话助手"
+  },
+  "locales": {
+    "zh-CN": "简体中文",
+    "en-US": "English"
+  },
+  "commands": {
+    "session": {
+      "summary": "管理会话",
+      "subcommands": {
+        "list": "列出所有会话",
+        "use": "切换到指定会话",
+        "new": "创建并切换到新会话",
+        "delete": "删除会话",
+        "clone": "克隆会话",
+        "search": "搜索所有会话中的内容",
+        "export": "导出会话 (md/json/txt)"
+      },
+      "examples": [
+        "/session list",
+        "/session use 1",
+        "/session new feature-x",
+        "/session search API"
+      ],
+      "tips": [
+        "使用数字索引快速切换会话",
+        "默认会话不可删除，但可以用 /clear 清空",
+        "支持搜索所有会话的历史内容"
+      ]
+    },
+    "branch": {
+      "summary": "管理对话分支",
+      "subcommands": {
+        "list": "列出所有分支",
+        "create": "创建新分支",
+        "switch": "切换到指定分支",
+        "delete": "删除分支",
+        "compare": "比较两个分支",
+        "merge": "合并分支",
+        "tree": "显示分支树结构",
+        "cleanup": "清理孤立分支"
+      },
+      "examples": [
+        "/branch create 尝试新方案",
+        "/branch list",
+        "/branch compare branch_1 branch_2",
+        "/branch merge branch_1 main"
+      ],
+      "tips": [
+        "分支可以在对话的任意点创建",
+        "支持并行探索不同的实现方案",
+        "合并时可以选择不同的模式"
+      ]
+    },
+    "file": {
+      "load": {
+        "summary": "加载文件到上下文",
+        "usage": "/load [file]",
+        "tips": [
+          "不指定文件时进入交互式选择",
+          "会显示文件大小和类型",
+          "敏感文件会有安全警告"
+        ]
+      },
+      "open": {
+        "summary": "用默认程序打开文件",
+        "usage": "/open <file>"
+      },
+      "save": {
+        "summary": "保存对话内容到文件",
+        "usage": "/save <filename>"
+      }
+    },
+    "git": {
+      "summary": "Git操作",
+      "subcommands": {
+        "status": "查看Git状态",
+        "log": "查看提交历史",
+        "diff": "查看文件差异"
+      }
+    },
+    "config": {
+      "summary": "配置管理",
+      "subcommands": {
+        "init": "初始化配置",
+        "show": "显示当前配置",
+        "set": "设置配置项",
+        "language": "设置语言"
+      }
+    },
+    "help": {
+      "summary": "显示帮助信息",
+      "usage": "/help [command]"
+    },
+    "clear": {
+      "summary": "清空当前会话"
+    },
+    "exit": {
+      "summary": "退出程序"
+    },
+    "token": {
+      "summary": "Token使用统计",
+      "subcommands": {
+        "show": "显示当前使用量",
+        "reset": "重置统计"
+      }
+    }
+  },
+  "messages": {
+    "error": {
+      "unknown": "发生未知错误",
+      "notFound": "未找到: {{item}}",
+      "invalid": "无效的输入",
+      "permission": "权限不足",
+      "network": "网络错误",
+      "timeout": "请求超时"
+    },
+    "success": {
+      "saved": "保存成功",
+      "deleted": "删除成功",
+      "created": "创建成功",
+      "updated": "更新成功"
+    },
+    "warning": {
+      "unsaved": "未保存的更改",
+      "overwrite": "文件将被覆盖"
+    },
+    "info": {
+      "loading": "加载中...",
+      "processing": "处理中..."
+    }
+  },
+  "session": {
+    "created": "会话 '{{name}}' 已创建",
+    "deleted": "会话 '{{name}}' 已删除",
+    "switched": "已切换到会话 '{{name}}'",
+    "cloned": "会话已从 '{{src}}' 克隆到 '{{tgt}}'",
+    "searchResults": "找到 {{count}} 条结果",
+    "exported": "会话已导出到 {{file}}"
+  },
+  "branch": {
+    "created": "分支 '{{name}}' 已创建",
+    "deleted": "分支 '{{id}}' 已删除",
+    "switched": "已切换到分支 '{{id}}'",
+    "merged": "分支 '{{src}}' 已合并到 '{{dst}}'",
+    "comparison": "分支比较结果",
+    "tree": "分支树结构"
+  },
+  "file": {
+    "loaded": "文件 '{{file}}' 已加载",
+    "notFound": "文件未找到: {{file}}",
+    "saved": "内容已保存到 {{file}}",
+    "openFailed": "无法打开文件: {{file}}"
+  },
+  "config": {
+    "initialized": "配置已初始化",
+    "updated": "配置已更新",
+    "languageChanged": "语言已更改为 {{language}}",
+    "invalidValue": "无效的配置值: {{value}}"
+  },
+  "keybindings": {
+    "clear": "清屏 (Ctrl+L)",
+    "clearLine": "清除当前行 (Ctrl+R)",
+    "deleteToStart": "删除到行首 (Ctrl+U)",
+    "deleteToEnd": "删除到行尾 (Ctrl+K)",
+    "home": "跳到行首 (Ctrl+A)",
+    "end": "跳到行尾 (Ctrl+E)",
+    "deleteWord": "删除上一个词 (Ctrl+W)",
+    "wordLeft": "上一个词 (Alt+Left)",
+    "wordRight": "下一个词 (Alt+Right)",
+    "historyUp": "历史上一条 (↑)",
+    "historyDown": "历史下一条 (↓)",
+    "interrupt": "中断/退出 (Ctrl+C)",
+    "exit": "退出 (Ctrl+D)",
+    "escape": "中断/清除行 (Esc)"
+  },
+  "plugins": {
+    "loaded": "插件 '{{name}}' 已加载",
+    "unloaded": "插件 '{{name}}' 已卸载",
+    "enabled": "插件 '{{name}}' 已启用",
+    "disabled": "插件 '{{name}}' 已禁用",
+    "error": "插件错误: {{error}}",
+    "notFound": "插件未找到: {{name}}"
+  },
+  "ui": {
+    "prompt": "请输入消息",
+    "continue": "继续",
+    "cancel": "取消",
+    "confirm": "确认",
+    "back": "返回",
+    "exit": "退出",
+    "search": "搜索",
+    "select": "选择",
+    "loading": "加载中..."
+  },
+  "time": {
+    "justNow": "刚刚",
+    "minutesAgo": "{{count}} 分钟前",
+    "hoursAgo": "{{count}} 小时前",
+    "daysAgo": "{{count}} 天前",
+    "today": "今天",
+    "yesterday": "昨天"
+  },
+  "validation": {
+    "required": "此项为必填项",
+    "minLength": "最少需要 {{min}} 个字符",
+    "maxLength": "最多允许 {{max}} 个字符",
+    "pattern": "格式不正确"
+  },
+  "stats": {
+    "messages": "消息",
+    "tokens": "Token",
+    "cost": "成本",
+    "sessions": "会话",
+    "branches": "分支"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "name": "xzchat",
+  "version": "2.3.5",
+  "description": "CLI chatbot based on NewAPI",
+  "bin": {
+    "xz-chat": "bin/cli.js"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "types": "types/index.d.ts",
+  "files": [
+    "bin",
+    "lib",
+    "plugins",
+    "types",
+    "docs",
+    "examples",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "ai",
+    "chatbot",
+    "cli",
+    "openai",
+    "anthropic",
+    "claude",
+    "gpt",
+    "assistant",
+    "terminal",
+    "newapi",
+    "mcp",
+    "rag",
+    "git",
+    "developer-tools"
+  ],
+  "author": "xiaozhou",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaozhou/xzchat"
+  },
+  "bugs": {
+    "url": "https://github.com/xiaozhou/xzchat/issues"
+  },
+  "homepage": "https://github.com/xiaozhou/xzchat#readme",
+  "scripts": {
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "build:win": "pkg . --targets node18-win-x64 --output dist/newapi-chat.exe",
+    "build:mac": "pkg . --targets node18-macos-x64 --output dist/xiaozhou-chat",
+    "pack:dmg": "mkdir -p release && cp dist/xiaozhou-chat release/ && create-dmg release dist",
+    "web": "node web-start.js"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.10",
+    "@vitest/coverage-v8": "^2.1.8",
+    "create-dmg": "^6.0.0",
+    "pkg": "^5.8.1",
+    "tailwindcss": "^4.1.18",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "form-data": "^4.0.5",
+    "marked": "^15.0.12",
+    "marked-terminal": "^7.3.0",
+    "minimist": "^1.2.8",
+    "moment": "^2.30.1",
+    "node-fetch": "^3.3.2",
+    "node-record-lpcm16": "^1.0.1",
+    "pdf-parse": "^1.1.1"
+  },
+  "optionalDependencies": {
+    "express": "^4.22.1",
+    "socket.io": "^4.8.3"
+  },
+  "pkg": {
+    "assets": []
+  }
+}

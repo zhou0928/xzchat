@@ -1,0 +1,11 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "快速笔记和备忘录插件",
+  "author": "xzChat Team",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "category": "productivity",
+  "keywords": ["xzchat", "plugin", "notes", "memo"]
+}

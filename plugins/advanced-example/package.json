@@ -1,0 +1,24 @@
+{
+  "name": "advanced-example",
+  "version": "1.0.0",
+  "description": "高级插件示例 - 展示依赖管理、版本控制、性能监控等功能",
+  "author": "xzChat Team",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "translator": ">=1.0.0"
+  },
+  "minSystemVersion": "2.0.0",
+  "maxSystemVersion": "3.0.0",
+  "keywords": ["示例", "高级", "演示"],
+  "category": "demo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xzchat/plugins/advanced-example"
+  },
+  "bugs": {
+    "url": "https://github.com/xzchat/plugins/advanced-example/issues"
+  },
+  "homepage": "https://github.com/xzchat/plugins/advanced-example#readme"
+}

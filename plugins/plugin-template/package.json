@@ -1,0 +1,11 @@
+{
+  "name": "my-plugin",
+  "version": "1.0.0",
+  "description": "我的插件描述",
+  "author": "Your Name",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "category": "general",
+  "keywords": ["xzchat", "plugin"]
+}
