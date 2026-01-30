@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1769779575990",
+    "name": "response_time",
+    "value": 120,
+    "tags": {
+      "endpoint": "/api/users"
+    },
+    "timestamp": "2026-01-30T13:26:15.990Z"
+  },
+  {
+    "id": "1769779575990",
+    "name": "response_time",
+    "value": 95,
+    "tags": {
+      "endpoint": "/api/users"
+    },
+    "timestamp": "2026-01-30T13:26:15.990Z"
+  },
+  {
+    "id": "1769779575990",
+    "name": "response_time",
+    "value": 180,
+    "tags": {
+      "endpoint": "/api/posts"
+    },
+    "timestamp": "2026-01-30T13:26:15.990Z"
+  },
+  {
+    "id": "1769779575990",
+    "name": "memory_usage",
+    "value": 1024,
+    "tags": {
+      "unit": "MB"
+    },
+    "timestamp": "2026-01-30T13:26:15.990Z"
+  },
+  {
+    "id": "1769779575990",
+    "name": "cpu_usage",
+    "value": 45.5,
+    "tags": {
+      "unit": "%"
+    },
+    "timestamp": "2026-01-30T13:26:15.990Z"
+  }
+]

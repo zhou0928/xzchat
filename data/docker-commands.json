@@ -1,0 +1,52 @@
+[
+  {
+    "id": "ps",
+    "name": "查看容器",
+    "template": "docker ps -a"
+  },
+  {
+    "id": "images",
+    "name": "查看镜像",
+    "template": "docker images"
+  },
+  {
+    "id": "build",
+    "name": "构建镜像",
+    "template": "docker build -t {name} ."
+  },
+  {
+    "id": "run",
+    "name": "运行容器",
+    "template": "docker run -d --name {name} {image}"
+  },
+  {
+    "id": "stop",
+    "name": "停止容器",
+    "template": "docker stop {container}"
+  },
+  {
+    "id": "rm",
+    "name": "删除容器",
+    "template": "docker rm {container}"
+  },
+  {
+    "id": "logs",
+    "name": "查看日志",
+    "template": "docker logs {container}"
+  },
+  {
+    "id": "exec",
+    "name": "执行命令",
+    "template": "docker exec -it {container} {command}"
+  },
+  {
+    "id": "compose-up",
+    "name": "启动服务",
+    "template": "docker-compose up -d"
+  },
+  {
+    "id": "compose-down",
+    "name": "停止服务",
+    "template": "docker-compose down"
+  }
+]

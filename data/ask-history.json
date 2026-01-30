@@ -1,0 +1,33 @@
+{
+  "history": [
+    {
+      "id": "1769779575987",
+      "question": "如何优化React组件性能？",
+      "answer": null,
+      "timestamp": "2026-01-30T13:26:15.987Z",
+      "tags": [
+        "React"
+      ]
+    },
+    {
+      "id": "1769779575986",
+      "question": "如何优化React组件性能？",
+      "answer": "使用React.memo、useMemo、useCallback等优化技巧",
+      "timestamp": "2026-01-30T13:26:15.986Z",
+      "tags": [
+        "React"
+      ]
+    }
+  ],
+  "favorites": [
+    {
+      "id": "1769779575987",
+      "question": "如何优化React组件性能？",
+      "answer": null,
+      "timestamp": "2026-01-30T13:26:15.987Z",
+      "tags": [
+        "React"
+      ]
+    }
+  ]
+}

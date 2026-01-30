@@ -1,0 +1,107 @@
+{
+  "reviews": [
+    {
+      "id": "1769779575988",
+      "file": "app.js",
+      "code": "\nfunction processData(data) {\n  var result = [];\n  for (var i = 0; i < data.length; i++) {\n    result.push(data[i].value);\n  }\n  return result;\n}\n",
+      "rules": [
+        {
+          "id": "naming",
+          "name": "命名规范",
+          "description": "检查变量和函数命名",
+          "enabled": true
+        },
+        {
+          "id": "complexity",
+          "name": "复杂度",
+          "description": "检查圈复杂度",
+          "enabled": true
+        },
+        {
+          "id": "duplication",
+          "name": "代码重复",
+          "description": "检测重复代码",
+          "enabled": true
+        },
+        {
+          "id": "security",
+          "name": "安全检查",
+          "description": "检查安全隐患",
+          "enabled": true
+        },
+        {
+          "id": "performance",
+          "name": "性能优化",
+          "description": "识别性能问题",
+          "enabled": true
+        },
+        {
+          "id": "best-practices",
+          "name": "最佳实践",
+          "description": "遵循语言最佳实践",
+          "enabled": true
+        },
+        {
+          "id": "error-handling",
+          "name": "错误处理",
+          "description": "检查异常处理",
+          "enabled": true
+        }
+      ],
+      "issues": [],
+      "score": 0,
+      "timestamp": "2026-01-30T13:26:15.988Z",
+      "status": "pending"
+    }
+  ],
+  "rules": [
+    {
+      "id": "naming",
+      "name": "命名规范",
+      "description": "检查变量和函数命名",
+      "enabled": true
+    },
+    {
+      "id": "complexity",
+      "name": "复杂度",
+      "description": "检查圈复杂度",
+      "enabled": true
+    },
+    {
+      "id": "duplication",
+      "name": "代码重复",
+      "description": "检测重复代码",
+      "enabled": true
+    },
+    {
+      "id": "security",
+      "name": "安全检查",
+      "description": "检查安全隐患",
+      "enabled": true
+    },
+    {
+      "id": "performance",
+      "name": "性能优化",
+      "description": "识别性能问题",
+      "enabled": true
+    },
+    {
+      "id": "best-practices",
+      "name": "最佳实践",
+      "description": "遵循语言最佳实践",
+      "enabled": true
+    },
+    {
+      "id": "documentation",
+      "name": "文档完整",
+      "description": "检查代码注释",
+      "enabled": false
+    },
+    {
+      "id": "error-handling",
+      "name": "错误处理",
+      "description": "检查异常处理",
+      "enabled": true
+    }
+  ]
+}

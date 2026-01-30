@@ -1,0 +1,41 @@
+{
+  "summaries": [],
+  "templates": [
+    {
+      "id": "brief",
+      "name": "简短摘要",
+      "description": "生成简短的摘要（100字以内）",
+      "maxLength": 100
+    },
+    {
+      "id": "standard",
+      "name": "标准摘要",
+      "description": "生成标准长度的摘要（200字）",
+      "maxLength": 200
+    },
+    {
+      "id": "detailed",
+      "name": "详细摘要",
+      "description": "生成详细的摘要（500字）",
+      "maxLength": 500
+    },
+    {
+      "id": "bullet-points",
+      "name": "要点摘要",
+      "description": "以要点形式列出关键内容",
+      "format": "bullet"
+    },
+    {
+      "id": "code",
+      "name": "代码摘要",
+      "description": "代码功能说明",
+      "type": "code"
+    },
+    {
+      "id": "api",
+      "name": "API文档",
+      "description": "API接口摘要",
+      "type": "api"
+    }
+  ]
+}

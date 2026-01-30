@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1769779575990",
+    "title": "构建失败",
+    "message": "CI/CD流水线构建失败",
+    "type": "error",
+    "read": false,
+    "timestamp": "2026-01-30T13:26:15.990Z"
+  },
+  {
+    "id": "1769779575990",
+    "title": "新成员加入",
+    "message": "张三已加入团队",
+    "type": "success",
+    "read": false,
+    "timestamp": "2026-01-30T13:26:15.990Z"
+  },
+  {
+    "id": "1769779575990",
+    "title": "代码审查完成",
+    "message": "您的PR #123已通过审查",
+    "type": "info",
+    "read": false,
+    "timestamp": "2026-01-30T13:26:15.990Z"
+  }
+]
