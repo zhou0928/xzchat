@@ -1,5 +1,5 @@
 {
-  "name": "@zhou0928/xz-chat",
+  "name": "xzchat",
   "version": "2.4.0",
   "description": "CLI chatbot based on NewAPI",
   "bin": {
@@ -36,16 +36,16 @@
     "git",
     "developer-tools"
   ],
-  "author": "zhou0928",
+  "author": "xiaozhou",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhou0928/xz-chat.git"
+    "url": "https://github.com/zhou0928/xzchat.git"
   },
   "bugs": {
-    "url": "https://github.com/zhou0928/xz-chat/issues"
+    "url": "https://github.com/zhou0928/xzchat/issues"
   },
-  "homepage": "https://github.com/zhou0928/xz-chat#readme",
+  "homepage": "https://github.com/zhou0928/xzchat#readme",
   "scripts": {
     "test": "vitest",
     "test:ui": "vitest --ui",
