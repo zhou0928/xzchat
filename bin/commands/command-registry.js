@@ -1286,6 +1286,203 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await import('./analyze.js').then(m => m.handle(input.split(' ').slice(1), context))
   }));
 
+  // ========== V3.1.1 新增功能 (剩余23个命令) ==========
+
+  // 集成与自动化
+  // ========== /integration: 第三方服务集成 ==========
+  registry.register(new Command({
+    name: '/integration',
+    aliases: ['集成'],
+    description: '第三方服务集成',
+    category: 'integration',
+    handler: async (input, context) => await import('./integration.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /webhook: Webhook管理 ==========
+  registry.register(new Command({
+    name: '/webhook',
+    aliases: ['web钩子'],
+    description: 'Webhook管理',
+    category: 'integration',
+    handler: async (input, context) => await import('./webhook.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /secret: 密钥管理 ==========
+  registry.register(new Command({
+    name: '/secret',
+    aliases: ['密钥'],
+    description: '密钥管理',
+    category: 'security',
+    handler: async (input, context) => await import('./secret.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /audit: 审计日志 ==========
+  registry.register(new Command({
+    name: '/audit',
+    aliases: ['审计'],
+    description: '审计日志',
+    category: 'security',
+    handler: async (input, context) => await import('./audit.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /scheduler: 任务调度 ==========
+  registry.register(new Command({
+    name: '/scheduler',
+    aliases: ['调度'],
+    description: '任务调度',
+    category: 'automation',
+    handler: async (input, context) => await import('./scheduler.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /pipeline: 自动化流水线 ==========
+  registry.register(new Command({
+    name: '/pipeline',
+    aliases: ['流水线'],
+    description: '自动化流水线',
+    category: 'automation',
+    handler: async (input, context) => await import('./pipeline.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // 用户体验
+  // ========== /theme-custom: 主题定制 ==========
+  registry.register(new Command({
+    name: '/theme-custom',
+    aliases: ['主题定制'],
+    description: '主题定制',
+    category: 'ui',
+    handler: async (input, context) => await import('./theme-custom.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /layout: 布局管理 ==========
+  registry.register(new Command({
+    name: '/layout',
+    aliases: ['布局'],
+    description: '布局管理',
+    category: 'ui',
+    handler: async (input, context) => await import('./layout.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // 数据管理
+  // ========== /import: 数据导入 ==========
+  registry.register(new Command({
+    name: '/import',
+    aliases: ['导入'],
+    description: '数据导入',
+    category: 'data',
+    handler: async (input, context) => await import('./import.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /export-advanced: 高级导出 ==========
+  registry.register(new Command({
+    name: '/export-advanced',
+    aliases: ['高级导出'],
+    description: '高级导出',
+    category: 'data',
+    handler: async (input, context) => await import('./export-advanced.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /archive: 数据归档 ==========
+  registry.register(new Command({
+    name: '/archive',
+    aliases: ['归档'],
+    description: '数据归档',
+    category: 'data',
+    handler: async (input, context) => await import('./archive.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // 测试工具
+  // ========== /test-runner: 测试运行器 ==========
+  registry.register(new Command({
+    name: '/test-runner',
+    aliases: ['测试运行'],
+    description: '测试运行器',
+    category: 'testing',
+    handler: async (input, context) => await import('./test-runner.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /coverage: 代码覆盖率 ==========
+  registry.register(new Command({
+    name: '/coverage',
+    aliases: ['覆盖率'],
+    description: '代码覆盖率',
+    category: 'testing',
+    handler: async (input, context) => await import('./coverage.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /mock: Mock数据 ==========
+  registry.register(new Command({
+    name: '/mock',
+    aliases: ['模拟数据'],
+    description: 'Mock数据',
+    category: 'testing',
+    handler: async (input, context) => await import('./mock.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /fixture: 测试Fixture ==========
+  registry.register(new Command({
+    name: '/fixture',
+    aliases: ['测试数据'],
+    description: '测试Fixture',
+    category: 'testing',
+    handler: async (input, context) => await import('./fixture.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // 文档与知识
+  // ========== /docs: 文档管理 ==========
+  registry.register(new Command({
+    name: '/docs',
+    aliases: ['文档'],
+    description: '文档管理',
+    category: 'documentation',
+    handler: async (input, context) => await import('./docs.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /api-docs: API文档 ==========
+  registry.register(new Command({
+    name: '/api-docs',
+    aliases: ['API文档'],
+    description: 'API文档',
+    category: 'documentation',
+    handler: async (input, context) => await import('./api-docs.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /changelog: 变更日志 ==========
+  registry.register(new Command({
+    name: '/changelog',
+    aliases: ['变更日志'],
+    description: '变更日志',
+    category: 'documentation',
+    handler: async (input, context) => await import('./changelog.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /release-notes: 发布说明 ==========
+  registry.register(new Command({
+    name: '/release-notes',
+    aliases: ['发布说明'],
+    description: '发布说明',
+    category: 'documentation',
+    handler: async (input, context) => await import('./release-notes.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // 协作
+  // ========== /review: 代码评审 ==========
+  registry.register(new Command({
+    name: '/review',
+    aliases: ['评审'],
+    description: '代码评审',
+    category: 'collaboration',
+    handler: async (input, context) => await import('./review.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /notification: 通知管理 ==========
+  registry.register(new Command({
+    name: '/notification',
+    aliases: ['通知'],
+    description: '通知管理',
+    category: 'collaboration',
+    handler: async (input, context) => await import('./notification.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
   return registry;
 }
 
