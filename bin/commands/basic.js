@@ -76,8 +76,179 @@ ${rc()}### 🆕 RAG 增量索引\x1b[0m
 - \`/rag-clean\`: 清理索引
 - \`/rag-stats\`: 索引统计信息
 
+${rc()}### 🆕 工作流自动化\x1b[0m
+- \`/workflow list\`: 列出所有工作流
+- \`/workflow get <id>\`: 查看工作流详情
+- \`/workflow add <id> <name> [desc]\`: 创建工作流
+- \`/workflow update <id> <field> <value>\`: 更新工作流
+- \`/workflow run <id> [vars]\`: 执行工作流
+- \`/workflow history [id]\`: 查看执行历史
+- \`/workflow export/import\`: 导出/导入工作流
+
+${rc()}### 🆕 笔记系统\x1b[0m
+- \`/note list\`: 列出笔记
+- \`/note get <id>\`: 查看笔记
+- \`/note add <title> [content]\`: 创建笔记
+- \`/note search <keyword>\`: 搜索笔记
+- \`/note tag <id> add/remove <tag>\`: 管理标签
+- \`/note export/import\`: 导出/导入笔记
+
+${rc()}### 🆕 定时任务\x1b[0m
+- \`/cron list\`: 列出所有任务
+- \`/cron add <id> <name> <expr> <cmd>\`: 创建任务
+- \`/cron enable/disable <id>\`: 启用/禁用任务
+- \`/cron presets\`: 查看预设模板
+- \`/cron logs [id]\`: 查看执行日志
+
+${rc()}### 🆕 模板系统\x1b[0m
+- \`/template list\`: 列出所有模板
+- \`/template get <id>\`: 查看模板
+- \`/template add <id> <name> <category> <prompt>\`: 创建模板
+- \`/template use <id> [vars]\`: 使用模板
+- \`/template validate <id>\`: 验证模板
+
+${rc()}### 🆕 搜索增强\x1b[0m
+- \`/search query <keyword>\`: 执行搜索
+- \`/search history [limit]\`: 搜索历史
+- \`/search popular [limit]\`: 热门搜索
+- \`/search suggest <prefix>\`: 搜索建议
+- \`/search index\`: 重建索引
+
+${rc()}### 🆕 数据备份\x1b[0m
+- \`/backup create [--encrypt]\`: 创建完整备份
+- \`/backup incremental <id>\`: 创建增量备份
+- \`/backup restore <id> [--preview]\`: 恢复备份
+- \`/backup list\`: 列出备份
+- \`/backup clean [days]\`: 清理旧备份
+
+${rc()}### 🆕 文件监控\x1b[0m
+- \`/watch list\`: 列出监控
+- \`/watch add <id> <path> <cmd>\`: 创建监控
+- \`/watch enable/disable <id>\`: 启用/禁用监控
+- \`/watch diff <file1> <file2>\`: 文件差异对比
+- \`/watch logs <id>\`: 查看监控日志
+
+${rc()}### 🆕 团队协作\x1b[0m
+- \`/share list\`: 列出分享
+- \`/share session/branch/bookmark/note <id>\`: 分享内容
+- \`/share unshare <id>\`: 取消分享
+- \`/share comment <id> add <content>\`: 添加评论
+- \`/share popular [limit]\`: 热门分享
+
+${rc()}### 🆕 命令别名\x1b[0m
+- \`/macro list\`: 列出所有宏
+- \`/macro get <name>\`: 查看宏
+- \`/macro add <name> <desc> --cmd "cmd"\`: 创建宏
+- \`/macro run <name> [params]\`: 执行宏
+- \`/macro validate <name>\`: 验证宏
+
+${rc()}### 🆕 AI 学习模式\x1b[0m
+- \`/learn record <category> <key> <value>\`: 记录偏好
+- \`/learn get <category> <key>\`: 获取偏好
+- \`/learn suggest\`: 获取智能建议
+- \`/learn stats\`: 学习统计
+- \`/learn export/import\`: 导出/导入学习数据
+
+${rc()}### 🆕 多模态输入\x1b[0m
+- \`/image describe <path>\`: 图片描述
+- \`/image ocr <path>\`: 文字识别
+- \`/image chart <path>\`: 图表分析
+- \`/image generate <prompt>\`: 图片生成
+- \`/image edit <path> <prompt>\`: 图片编辑
+
+${rc()}### 🆕 项目管理\x1b[0m
+- \`/project list\`: 列出项目
+- \`/project get <id>\`: 查看项目
+- \`/project create <name> [path]\`: 创建项目
+- \`/project switch <id>\`: 切换项目
+
+${rc()}### 🆕 配置同步\x1b[0m
+- \`/sync list\`: 列出同步源
+- \`/sync add <name> <provider> [repo]\`: 添加同步源
+- \`/sync sync\`: 手动同步
+- \`/sync start/stop\`: 启动/停止自动同步
+- \`/sync conflicts\`: 查看冲突
+
+${rc()}### 🆕 扩展市场\x1b[0m
+- \`/market search <keyword>\`: 搜索插件
+- \`/market install <id>\`: 安装插件
+- \`/market list\`: 列出插件
+- \`/market trending/top-rated\`: 热门/高分插件
+- \`/market recommend\`: 推荐插件
+
+${rc()}### 🆕 快捷命令管理\x1b[0m
+- \`/quick list\`: 列出所有快捷命令
+- \`/quick get <name>\`: 查看命令详情
+- \`/quick add <name> <desc>\`: 创建快捷命令
+- \`/quick update <name> <field> <value>\`: 更新命令
+- \`/quick run <name> [vars...]\`: 执行命令
+
+${rc()}### 🆕 代码重构助手\x1b[0m
+- \`/refactor analyze <file>\`: 分析代码质量
+- \`/refactor suggest <file> [pat]\`: 获取重构建议
+- \`/refactor apply <file> <pat>\`: 应用重构
+- \`/refactor patterns\`: 列出所有重构模式
+- \`/refactor check <file>\`: 快速质量检查
+
+${rc()}### 🆕 性能分析器\x1b[0m
+- \`/perf start [label]\`: 开始性能监控
+- \`/perf stop [label]\`: 停止监控并显示报告
+- \`/perf report [label]\`: 查看详细报告
+- \`/perf compare <l1> <l2>\`: 比较两个会话
+- \`/perf bottlenecks\`: 识别性能瓶颈
+
+${rc()}### 🆕 调试助手\x1b[0m
+- \`/debug analyze <error>\`: 分析错误
+- \`/debug trace <file>\`: 生成代码追踪
+- \`/debug breakpoint <file> <line>\`: 设置断点
+- \`/debug log <type> <content>\`: 记录日志
+- \`/debug fix <error>\`: 生成修复代码
+
+${rc()}### 🆕 数据库工具\x1b[0m
+- \`/db query <sql>\`: 分析SQL查询
+- \`/db model <name> [fields]\`: 生成数据模型
+- \`/db migration <action> <table>\`: 生成迁移脚本
+- \`/db schema <file>\`: 分析数据库架构
+- \`/db validate <sql>\`: 验证SQL
+
+${rc()}### 🆕 API测试工具\x1b[0m
+- \`/api test <url> [method]\`: 测试API请求
+- \`/api save <name> <config>\`: 保存请求配置
+- \`/api list\`: 列出保存的请求
+- \`/api run <name>\`: 执行保存的请求
+- \`/api docs [file]\`: 生成API文档
+
+${rc()}### 🆕 团队知识库\x1b[0m
+- \`/wiki list\`: 列出所有文档
+- \`/wiki get <id>\`: 查看文档
+- \`/wiki add <title> <content>\`: 创建文档
+- \`/wiki search <keyword>\`: 搜索文档
+- \`/wiki export [file]\`: 导出知识库
+
+${rc()}### 🆕 自动化部署\x1b[0m
+- \`/deploy list\`: 列出部署环境
+- \`/deploy add <name> <plat> [url]\`: 添加部署环境
+- \`/deploy deploy <name>\`: 执行部署
+- \`/deploy rollback <name>\`: 回滚部署
+- \`/deploy logs <name>\`: 查看日志
+
+${rc()}### 🆕 智能搜索\x1b[0m
+- \`/find-upgrade search <query> [path]\`: 普通搜索
+- \`/find-upgrade semantic <query>\`: 语义搜索
+- \`/find-upgrade references <target>\`: 查找引用
+- \`/find-upgrade trace <file>\`: 依赖追踪
+- \`/find-upgrade rebuild\`: 重建索引
+
+${rc()}### 🆕 任务看板\x1b[0m
+- \`/kanban board [name]\`: 查看看板
+- \`/kanban add [board] <title> [pri]\`: 添加任务
+- \`/kanban move <id> <column>\`: 移动任务
+- \`/kanban update <id> <field> <val>\`: 更新任务
+- \`/kanban stats\`: 统计信息
+
 ${rc()}### 💡 提示\x1b[0m
 - 使用 \`/help\` 查看此帮助信息
+- 使用 \`/<command> help\` 查看特定命令的详细帮助
 - 使用 Tab 键自动补全命令
 - 按 Ctrl+C 退出程序
 - 更多功能持续更新中...

@@ -3,7 +3,7 @@
   "version": "2.4.0",
   "description": "CLI chatbot based on NewAPI",
   "bin": {
-    "xz-chat": "bin/cli.js"
+    "xzchat": "bin/cli.js"
   },
   "type": "module",
   "engines": {

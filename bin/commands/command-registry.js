@@ -88,6 +88,41 @@ import { handleExportCommand } from "./export.js";
 import { handleFindCommand } from "./find.js";
 import { handleAliasCommand } from "./alias.js";
 import { handlePromptCommand } from "./prompt.js";
+import { handle as handleSnippetCommand } from "./snippet.js";
+import { handle as handleTodoCommand } from "./todo.js";
+import { handle as handleRemindCommand } from "./remind.js";
+import { handle as handleBookmarkCommand } from "./bookmark.js";
+import { handle as handleChartCommand } from "./chart.js";
+import { handle as handleEnvCommand } from "./env.js";
+import { handle as handleStatsCommand } from "./stats.js";
+import { handle as handleKeybindCommand } from "./keybind.js";
+import { handle as handlePersonaCommand } from "./persona.js";
+import { handle as handleWorkflowCommand } from "./workflow.js";
+import { handle as handleNoteCommand } from "./note.js";
+import { handle as handleCronCommand } from "./cron.js";
+import { handle as handleTemplateCommand } from "./template.js";
+import { handle as handleSearchCommand } from "./search.js";
+import { handle as handleBackupCommand } from "./backup.js";
+import { handle as handleWatchCommand } from "./watch.js";
+import { handle as handleShareCommand } from "./share.js";
+import { handle as handleMacroCommand } from "./macro.js";
+import { handle as handleLearnCommand } from "./learn.js";
+import { handle as handleProjectCommand } from "./project.js";
+import { handle as handleSyncCommand } from "./sync.js";
+import { handle as handleMarketCommand } from "./market.js";
+import { handle as handleImageCommand } from "./image.js";
+
+// 新增功能导入
+import { handle as handleQuickCommand } from "./quick.js";
+import { handle as handleRefactorCommand } from "./refactor.js";
+import { handle as handlePerfCommand } from "./perf.js";
+import { handle as handleDebugCommand } from "./debug.js";
+import { handle as handleDbCommand } from "./db.js";
+import { handle as handleApiCommand } from "./api.js";
+import { handle as handleWikiCommand } from "./wiki.js";
+import { handle as handleDeployCommand } from "./deploy.js";
+import { handle as handleFindUpgradeCommand } from "./find-upgrade.js";
+import { handle as handleKanbanCommand } from "./kanban.js";
 
 /**
  * 命令定义
@@ -228,6 +263,7 @@ export function createDefaultRegistry() {
   const registry = new CommandRegistry();
 
   // 基础命令
+  // ========== /help: 显示帮助信息 ==========
   registry.register(new Command({
     name: '/help',
     aliases: ['/?'],
@@ -236,6 +272,7 @@ export function createDefaultRegistry() {
     handler: (input, context) => handleHelp()
   }));
 
+  // ========== /exit: 退出程序 ==========
   registry.register(new Command({
     name: '/exit',
     aliases: ['/quit'],
@@ -244,6 +281,7 @@ export function createDefaultRegistry() {
     handler: (input, context) => handleExit()
   }));
 
+  // ========== /clear: 清除屏幕 ==========
   registry.register(new Command({
     name: '/clear',
     description: '清除屏幕',
@@ -252,6 +290,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleClear(context.messages, context.currentSession, context.clearHistory)
   }));
 
+  // ========== /config: 配置管理 ==========
   registry.register(new Command({
     name: '/config',
     aliases: ['/配置'],
@@ -270,6 +309,7 @@ export function createDefaultRegistry() {
     )
   }));
 
+  // ========== /system: 设置系统提示词 ==========
   registry.register(new Command({
     name: '/system',
     description: '设置系统提示词',
@@ -284,6 +324,7 @@ export function createDefaultRegistry() {
     )
   }));
 
+  // ========== /init: 初始化配置文件 ==========
   registry.register(new Command({
     name: '/init',
     aliases: ['/初始化配置'],
@@ -293,6 +334,7 @@ export function createDefaultRegistry() {
     handler: (input, context) => handleInit(context.initProjectConfigFile)
   }));
 
+  // ========== /config-wizard: 交互式配置向导 ==========
   registry.register(new Command({
     name: '/config-wizard',
     aliases: ['/配置向导'],
@@ -302,6 +344,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleConfigWizard(context.askQuestion)
   }));
 
+  // ========== /reload: 重新加载配置 ==========
   registry.register(new Command({
     name: '/reload',
     aliases: ['/重新加载'],
@@ -312,6 +355,7 @@ export function createDefaultRegistry() {
   }));
 
   // 会话命令
+  // ========== /session: 会话管理 ==========
   registry.register(new Command({
     name: '/session',
     description: '会话管理',
@@ -330,6 +374,7 @@ export function createDefaultRegistry() {
     )
   }));
 
+  // ========== /history: 查看历史记录 ==========
   registry.register(new Command({
     name: '/history',
     description: '查看历史记录',
@@ -339,6 +384,7 @@ export function createDefaultRegistry() {
   }));
 
   // 模型命令
+  // ========== /models: 查看可用模型 ==========
   registry.register(new Command({
     name: '/models',
     description: '查看可用模型',
@@ -352,6 +398,7 @@ export function createDefaultRegistry() {
     )
   }));
 
+  // ========== /role: 设置角色 ==========
   registry.register(new Command({
     name: '/role',
     aliases: ['/角色'],
@@ -361,6 +408,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleRole(input, context.loadConfig, context.setRole)
   }));
 
+  // ========== /think: 设置思考模式 ==========
   registry.register(new Command({
     name: '/think',
     description: '设置思考模式',
@@ -376,6 +424,7 @@ export function createDefaultRegistry() {
   }));
 
   // 文件命令
+  // ========== /scan: 扫描项目结构 ==========
   registry.register(new Command({
     name: '/scan',
     aliases: ['/当前项目结构'],
@@ -385,6 +434,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleScan(input, context.askQuestion, context.addToContext)
   }));
 
+  // ========== /load: 加载文件 ==========
   registry.register(new Command({
     name: '/load',
     description: '加载文件',
@@ -393,6 +443,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleLoad(input, context.askQuestion, context.addToContext, context.rl)
   }));
 
+  // ========== /paste: 粘贴内容 ==========
   registry.register(new Command({
     name: '/paste',
     description: '粘贴内容',
@@ -400,6 +451,7 @@ export function createDefaultRegistry() {
     handler: (input, context) => handlePaste()
   }));
 
+  // ========== /copy: 复制内容 ==========
   registry.register(new Command({
     name: '/copy',
     description: '复制内容',
@@ -408,6 +460,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleCopy(input, context.messages, context.copyToClipboard)
   }));
 
+  // ========== /optimize: 优化代码 ==========
   registry.register(new Command({
     name: '/optimize',
     aliases: ['/opt'],
@@ -423,6 +476,7 @@ export function createDefaultRegistry() {
   }));
 
   // Git 命令
+  // ========== /commit: Git 提交 ==========
   registry.register(new Command({
     name: '/commit',
     description: 'Git 提交',
@@ -436,6 +490,7 @@ export function createDefaultRegistry() {
   }));
 
   // MCP 命令
+  // ========== /mcp: MCP 管理 ==========
   registry.register(new Command({
     name: '/mcp',
     description: 'MCP 管理',
@@ -452,6 +507,7 @@ export function createDefaultRegistry() {
   }));
 
   // RAG 命令
+  // ========== /rag: 知识库检索 ==========
   registry.register(new Command({
     name: '/rag',
     description: '知识库检索',
@@ -461,6 +517,7 @@ export function createDefaultRegistry() {
   }));
 
   // 语音命令
+  // ========== /voice: 语音输入 ==========
   registry.register(new Command({
     name: '/voice',
     description: '语音输入',
@@ -469,6 +526,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleVoice(context.askQuestion, context.mainChat, context.rl)
   }));
 
+  // ========== /tts: 语音朗读 ==========
   registry.register(new Command({
     name: '/tts',
     description: '语音朗读',
@@ -486,6 +544,7 @@ export function createDefaultRegistry() {
   }));
 
   // 高级命令
+  // ========== /auto: 自动模式 ==========
   registry.register(new Command({
     name: '/auto',
     description: '自动模式',
@@ -494,6 +553,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleAuto(input, context.mainChat)
   }));
 
+  // ========== /open: 打开文件 ==========
   registry.register(new Command({
     name: '/open',
     description: '打开文件',
@@ -501,6 +561,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleOpen(input)
   }));
 
+  // ========== /context: 查看上下文 ==========
   registry.register(new Command({
     name: '/context',
     description: '查看上下文',
@@ -509,6 +570,7 @@ export function createDefaultRegistry() {
     handler: (input, context) => handleContext(context.messages)
   }));
 
+  // ========== /token: Token 统计 ==========
   registry.register(new Command({
     name: '/token',
     description: 'Token 统计',
@@ -517,6 +579,7 @@ export function createDefaultRegistry() {
     handler: (input, context) => handleToken(context.messages, context.estimateTokens, context.calculateCost)
   }));
 
+  // ========== /compress: 压缩对话历史 ==========
   registry.register(new Command({
     name: '/compress',
     description: '压缩对话历史',
@@ -531,6 +594,7 @@ export function createDefaultRegistry() {
     }
   }));
 
+  // ========== /tools: 工具列表 ==========
   registry.register(new Command({
     name: '/tools',
     description: '工具列表',
@@ -539,6 +603,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleTools(context.mcpClients)
   }));
 
+  // ========== /editor: 编辑器配置 ==========
   registry.register(new Command({
     name: '/editor',
     aliases: ['/edit'],
@@ -547,6 +612,7 @@ export function createDefaultRegistry() {
     handler: (input, context) => handleEditor()
   }));
 
+  // ========== /review: 代码审查 ==========
   registry.register(new Command({
     name: '/review',
     description: '代码审查',
@@ -560,6 +626,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：代码补全 ==========
+  // ========== /complete: AI 代码补全 ==========
   registry.register(new Command({
     name: '/complete',
     description: 'AI 代码补全',
@@ -572,6 +639,7 @@ export function createDefaultRegistry() {
     )
   }));
 
+  // ========== /complete-inline: 实时代码补全 ==========
   registry.register(new Command({
     name: '/complete-inline',
     description: '实时代码补全',
@@ -585,6 +653,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：批量操作 ==========
+  // ========== /batch-search: 批量搜索文件内容 ==========
   registry.register(new Command({
     name: '/batch-search',
     description: '批量搜索文件内容',
@@ -592,6 +661,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleBatchSearch(input)
   }));
 
+  // ========== /batch-replace: 批量替换文件内容 ==========
   registry.register(new Command({
     name: '/batch-replace',
     description: '批量替换文件内容',
@@ -599,6 +669,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleBatchReplace(input)
   }));
 
+  // ========== /batch-analyze: 批量分析文件 ==========
   registry.register(new Command({
     name: '/batch-analyze',
     description: '批量分析文件',
@@ -611,6 +682,7 @@ export function createDefaultRegistry() {
     )
   }));
 
+  // ========== /batch-check: 批量语法检查 ==========
   registry.register(new Command({
     name: '/batch-check',
     description: '批量语法检查',
@@ -619,6 +691,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：RAG 增量索引 ==========
+  // ========== /rag-check: 检查 RAG 索引变更 ==========
   registry.register(new Command({
     name: '/rag-check',
     description: '检查 RAG 索引变更',
@@ -626,6 +699,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleRAGIncrementalCheck(input)
   }));
 
+  // ========== /rag-rebuild: 增量重建 RAG 索引 ==========
   registry.register(new Command({
     name: '/rag-rebuild',
     description: '增量重建 RAG 索引',
@@ -637,6 +711,7 @@ export function createDefaultRegistry() {
     )
   }));
 
+  // ========== /rag-clean: 清理 RAG 索引 ==========
   registry.register(new Command({
     name: '/rag-clean',
     description: '清理 RAG 索引',
@@ -644,6 +719,7 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleRAGIndexClean()
   }));
 
+  // ========== /rag-stats: RAG 索引统计 ==========
   registry.register(new Command({
     name: '/rag-stats',
     description: 'RAG 索引统计',
@@ -652,6 +728,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：分支管理 ==========
+  // ========== /branch: 会话分支管理 ==========
   registry.register(new Command({
     name: '/branch',
     description: '会话分支管理',
@@ -661,6 +738,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：成本追踪 ==========
+  // ========== /cost: API 成本追踪 ==========
   registry.register(new Command({
     name: '/cost',
     description: 'API 成本追踪',
@@ -669,6 +747,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：成就系统 ==========
+  // ========== /achievement: 成就系统 ==========
   registry.register(new Command({
     name: '/achievement',
     aliases: ['/ach'],
@@ -678,6 +757,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：安全存储 ==========
+  // ========== /secure-store: 安全存储管理 ==========
   registry.register(new Command({
     name: '/secure-store',
     aliases: ['/secure'],
@@ -687,6 +767,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：审计日志 ==========
+  // ========== /audit-log: 审计日志 ==========
   registry.register(new Command({
     name: '/audit-log',
     aliases: ['/audit'],
@@ -696,6 +777,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：自动修复 ==========
+  // ========== /auto-fix: 自动检测并修复错误 ==========
   registry.register(new Command({
     name: '/auto-fix',
     aliases: ['/fix'],
@@ -706,6 +788,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：统计看板 ==========
+  // ========== /dashboard: 统计看板 ==========
   registry.register(new Command({
     name: '/dashboard',
     aliases: ['/dash'],
@@ -715,6 +798,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== P2功能：多语言支持 ==========
+  // ========== /language: 语言设置 ==========
   registry.register(new Command({
     name: '/language',
     aliases: ['/lang'],
@@ -724,6 +808,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== P2功能：主题系统 ==========
+  // ========== /theme: 主题管理 ==========
   registry.register(new Command({
     name: '/theme',
     aliases: ['/th'],
@@ -733,6 +818,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== P2功能：Web UI ==========
+  // ========== /web: Web UI 管理 ==========
   registry.register(new Command({
     name: '/web',
     description: 'Web UI 管理',
@@ -741,6 +827,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 插件系统 ==========
+  // ========== /plugin: 插件管理 ==========
   registry.register(new Command({
     name: '/plugin',
     aliases: ['/plugins'],
@@ -750,6 +837,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：对话导出 ==========
+  // ========== /export: 导出对话历史为 Markdown 或 JSON ==========
   registry.register(new Command({
     name: '/export',
     aliases: ['/save', 'export'],
@@ -759,6 +847,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：对话搜索 ==========
+  // ========== /find: 在历史对话中搜索内容 ==========
   registry.register(new Command({
     name: '/find',
     aliases: ['/search', 'grep'],
@@ -768,6 +857,7 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：命令别名 ==========
+  // ========== /alias: 管理命令别名 ==========
   registry.register(new Command({
     name: '/alias',
     description: '管理命令别名',
@@ -776,12 +866,330 @@ export function createDefaultRegistry() {
   }));
 
   // ========== 新增功能：预设提示词 ==========
+  // ========== /prompt: 管理预设提示词 ==========
   registry.register(new Command({
     name: '/prompt',
     aliases: ['/preset', '/template'],
     description: '管理预设提示词',
     category: 'utility',
     handler: async (input, context) => await handlePromptCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：代码片段管理 ==========
+  // ========== /snippet: 代码片段管理 ==========
+  registry.register(new Command({
+    name: '/snippet',
+    aliases: ['代码片段', 'snip'],
+    description: '代码片段管理',
+    category: 'utility',
+    handler: async (input, context) => await handleSnippetCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：任务管理 ==========
+  // ========== /todo: 任务管理 ==========
+  registry.register(new Command({
+    name: '/todo',
+    aliases: ['任务', 'task'],
+    description: '任务管理',
+    category: 'utility',
+    handler: async (input, context) => await handleTodoCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：定时提醒 ==========
+  // ========== /remind: 定时提醒 ==========
+  registry.register(new Command({
+    name: '/remind',
+    aliases: ['提醒', 'timer'],
+    description: '定时提醒',
+    category: 'utility',
+    handler: async (input, context) => await handleRemindCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：书签系统 ==========
+  // ========== /bookmark: 书签系统 ==========
+  registry.register(new Command({
+    name: '/bookmark',
+    aliases: ['书签', 'bm'],
+    description: '书签系统',
+    category: 'utility',
+    handler: async (input, context) => await handleBookmarkCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：数据可视化 ==========
+  // ========== /chart: 数据可视化 ==========
+  registry.register(new Command({
+    name: '/chart',
+    aliases: ['图表'],
+    description: '数据可视化',
+    category: 'utility',
+    handler: async (input, context) => await handleChartCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：环境变量管理 ==========
+  // ========== /env: 环境变量管理 ==========
+  registry.register(new Command({
+    name: '/env',
+    aliases: ['环境变量', 'environ'],
+    description: '环境变量管理',
+    category: 'utility',
+    handler: async (input, context) => await handleEnvCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：AI性能统计 ==========
+  // ========== /stats: AI 性能统计 ==========
+  registry.register(new Command({
+    name: '/stats',
+    aliases: ['统计'],
+    description: 'AI 性能统计',
+    category: 'utility',
+    handler: async (input, context) => await handleStatsCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：快捷键绑定 ==========
+  // ========== /keybind: 快捷键绑定 ==========
+  registry.register(new Command({
+    name: '/keybind',
+    aliases: ['快捷键', 'kb'],
+    description: '快捷键绑定',
+    category: 'utility',
+    handler: async (input, context) => await handleKeybindCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：AI人格训练 ==========
+  // ========== /persona: AI 人格训练 ==========
+  registry.register(new Command({
+    name: '/persona',
+    aliases: ['人格', 'personality'],
+    description: 'AI 人格训练',
+    category: 'utility',
+    handler: async (input, context) => await handlePersonaCommand(input.split(' ').slice(1), context)
+  }));
+
+
+  // ========== /workflow: 工作流自动化 ==========
+  registry.register(new Command({
+    name: '/workflow',
+    aliases: ['workflow', '工作流'],
+    description: '工作流自动化',
+    category: 'automation',
+    handler: async (input, context) => await handleWorkflowCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== /note: 笔记系统 ==========
+  registry.register(new Command({
+    name: '/note',
+    aliases: ['笔记'],
+    description: '笔记系统',
+    category: 'productivity',
+    handler: async (input, context) => await handleNoteCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== /cron: 定时任务管理 ==========
+  registry.register(new Command({
+    name: '/cron',
+    aliases: ['定时任务'],
+    description: '定时任务管理',
+    category: 'automation',
+    handler: async (input, context) => await handleCronCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== /template: 模板系统 ==========
+  registry.register(new Command({
+    name: '/template',
+    aliases: ['模板'],
+    description: '模板系统',
+    category: 'productivity',
+    handler: async (input, context) => await handleTemplateCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== /search: 搜索增强 ==========
+  registry.register(new Command({
+    name: '/search',
+    aliases: ['高级搜索'],
+    description: '搜索增强',
+    category: 'search',
+    handler: async (input, context) => await handleSearchCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== /backup: 数据备份 ==========
+  registry.register(new Command({
+    name: '/backup',
+    aliases: ['备份'],
+    description: '数据备份',
+    category: 'utility',
+    handler: async (input, context) => await handleBackupCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== /watch: 文件监控 ==========
+  registry.register(new Command({
+    name: '/watch',
+    aliases: ['监控'],
+    description: '文件监控',
+    category: 'utility',
+    handler: async (input, context) => await handleWatchCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== /share: 团队协作 ==========
+  registry.register(new Command({
+    name: '/share',
+    aliases: ['分享'],
+    description: '团队协作',
+    category: 'collaboration',
+    handler: async (input, context) => await handleShareCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== /macro: 命令别名 ==========
+  registry.register(new Command({
+    name: '/macro',
+    aliases: ['宏'],
+    description: '命令别名',
+    category: 'productivity',
+    handler: async (input, context) => await handleMacroCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== /learn: AI学习模式 ==========
+  registry.register(new Command({
+    name: '/learn',
+    aliases: ['学习模式'],
+    description: 'AI学习模式',
+    category: 'ai',
+    handler: async (input, context) => await handleLearnCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== /image: 多模态输入 ==========
+  registry.register(new Command({
+    name: '/image',
+    aliases: ['图片'],
+    description: '多模态输入',
+    category: 'ai',
+    handler: async (input, context) => await handleImageCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== /project: 项目管理 ==========
+  registry.register(new Command({
+    name: '/project',
+    aliases: ['项目'],
+    description: '项目管理',
+    category: 'project',
+    handler: async (input, context) => await handleProjectCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== /sync: 配置同步 ==========
+  registry.register(new Command({
+    name: '/sync',
+    aliases: ['同步'],
+    description: '配置同步',
+    category: 'utility',
+    handler: async (input, context) => await handleSyncCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== /market: 扩展市场 ==========
+  registry.register(new Command({
+    name: '/market',
+    aliases: ['市场'],
+    description: '扩展市场',
+    category: 'plugin',
+    handler: async (input, context) => await handleMarketCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：快捷命令管理器 ==========
+  // ========== /quick: 快捷命令管理器 ==========
+  registry.register(new Command({
+    name: '/quick',
+    aliases: ['快捷命令'],
+    description: '快捷命令管理器',
+    category: 'utility',
+    handler: async (input, context) => await handleQuickCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：代码重构助手 ==========
+  // ========== /refactor: 代码重构助手 ==========
+  registry.register(new Command({
+    name: '/refactor',
+    aliases: ['重构'],
+    description: '代码重构助手',
+    category: 'development',
+    handler: async (input, context) => await handleRefactorCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：性能分析器 ==========
+  // ========== /perf: 性能分析器 ==========
+  registry.register(new Command({
+    name: '/perf',
+    aliases: ['性能'],
+    description: '性能分析器',
+    category: 'development',
+    handler: async (input, context) => await handlePerfCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：调试助手 ==========
+  // ========== /debug: 调试助手 ==========
+  registry.register(new Command({
+    name: '/debug',
+    aliases: ['调试'],
+    description: '调试助手',
+    category: 'development',
+    handler: async (input, context) => await handleDebugCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：数据库工具 ==========
+  // ========== /db: 数据库工具 ==========
+  registry.register(new Command({
+    name: '/db',
+    aliases: ['数据库'],
+    description: '数据库工具',
+    category: 'development',
+    handler: async (input, context) => await handleDbCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：API测试工具 ==========
+  // ========== /api: API测试工具 ==========
+  registry.register(new Command({
+    name: '/api',
+    aliases: ['API'],
+    description: 'API测试工具',
+    category: 'development',
+    handler: async (input, context) => await handleApiCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：团队知识库 ==========
+  // ========== /wiki: 团队知识库 ==========
+  registry.register(new Command({
+    name: '/wiki',
+    aliases: ['知识库'],
+    description: '团队知识库',
+    category: 'collaboration',
+    handler: async (input, context) => await handleWikiCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：自动化部署 ==========
+  // ========== /deploy: 自动化部署 ==========
+  registry.register(new Command({
+    name: '/deploy',
+    aliases: ['部署'],
+    description: '自动化部署',
+    category: 'deployment',
+    handler: async (input, context) => await handleDeployCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：智能搜索优化 ==========
+  // ========== /find-upgrade: 智能搜索优化 ==========
+  registry.register(new Command({
+    name: '/find-upgrade',
+    aliases: ['智能搜索'],
+    description: '智能搜索优化',
+    category: 'development',
+    handler: async (input, context) => await handleFindUpgradeCommand(input.split(' ').slice(1), context)
+  }));
+
+  // ========== 新增功能：任务看板 ==========
+  // ========== /kanban: 任务看板 ==========
+  registry.register(new Command({
+    name: '/kanban',
+    aliases: ['看板'],
+    description: '任务看板',
+    category: 'productivity',
+    handler: async (input, context) => await handleKanbanCommand(input.split(' ').slice(1), context)
   }));
 
   return registry;
