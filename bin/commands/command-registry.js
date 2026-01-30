@@ -1192,6 +1192,100 @@ export function createDefaultRegistry() {
     handler: async (input, context) => await handleKanbanCommand(input.split(' ').slice(1), context)
   }));
 
+  // ========== V3.1.0 新增功能 ==========
+  // AI/智能化功能
+  // ========== /ask: AI问答 ==========
+  registry.register(new Command({
+    name: '/ask',
+    aliases: ['问答'],
+    description: 'AI问答',
+    category: 'ai',
+    handler: async (input, context) => await import('./ask.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /code-review: 代码审查 ==========
+  registry.register(new Command({
+    name: '/code-review',
+    aliases: ['审查'],
+    description: '代码审查',
+    category: 'ai',
+    handler: async (input, context) => await import('./code-review.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /summarize: 文档摘要 ==========
+  registry.register(new Command({
+    name: '/summarize',
+    aliases: ['摘要'],
+    description: '文档摘要',
+    category: 'ai',
+    handler: async (input, context) => await import('./summarize.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /explain: 代码解释 ==========
+  registry.register(new Command({
+    name: '/explain',
+    aliases: ['解释'],
+    description: '代码解释',
+    category: 'ai',
+    handler: async (input, context) => await import('./explain.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // 开发工具增强
+  // ========== /docker: Docker管理 ==========
+  registry.register(new Command({
+    name: '/docker',
+    aliases: ['容器'],
+    description: 'Docker管理',
+    category: 'devops',
+    handler: async (input, context) => await import('./docker.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /k8s: Kubernetes管理 ==========
+  registry.register(new Command({
+    name: '/k8s',
+    aliases: ['kubernetes'],
+    description: 'Kubernetes管理',
+    category: 'devops',
+    handler: async (input, context) => await import('./k8s.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /ci-cd: CI/CD管理 ==========
+  registry.register(new Command({
+    name: '/ci-cd',
+    aliases: ['cicd'],
+    description: 'CI/CD管理',
+    category: 'devops',
+    handler: async (input, context) => await import('./ci-cd.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /proxy: 代理管理 ==========
+  registry.register(new Command({
+    name: '/proxy',
+    aliases: ['代理'],
+    description: '代理管理',
+    category: 'devops',
+    handler: async (input, context) => await import('./proxy.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // 数据分析模块
+  // ========== /metrics: 性能指标 ==========
+  registry.register(new Command({
+    name: '/metrics',
+    aliases: ['指标'],
+    description: '性能指标',
+    category: 'analytics',
+    handler: async (input, context) => await import('./metrics.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
+  // ========== /analyze: 项目分析 ==========
+  registry.register(new Command({
+    name: '/analyze',
+    aliases: ['分析'],
+    description: '项目分析',
+    category: 'analytics',
+    handler: async (input, context) => await import('./analyze.js').then(m => m.handle(input.split(' ').slice(1), context))
+  }));
+
   return registry;
 }
 
