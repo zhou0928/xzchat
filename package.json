@@ -50,6 +50,8 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
+    "pre-commit": "node scripts/pre-commit-check.mjs",
+    "check:commands": "node scripts/pre-commit-check.mjs",
     "build:win": "pkg . --targets node18-win-x64 --output dist/newapi-chat.exe",
     "build:mac": "pkg . --targets node18-macos-x64 --output dist/xiaozhou-chat",
     "pack:dmg": "mkdir -p release && cp dist/xiaozhou-chat release/ && create-dmg release dist",
