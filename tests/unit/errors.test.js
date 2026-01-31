@@ -32,7 +32,7 @@ describe('错误处理模块', () => {
     it('应该创建APIError', () => {
       const error = new APIError('API error', 500);
       expect(error).toBeInstanceOf(XZChatError);
-      expect(error.status).toBe(500);
+      expect(error.statusCode).toBe(500);
       expect(error.name).toBe('APIError');
     });
 
@@ -73,7 +73,7 @@ describe('错误处理模块', () => {
       const error = new Error('Test');
       error.stack = 'Error: Test\n  at test';
       const formatted = formatError(error, true);
-      expect(formatted).toContain('stack');
+      expect(formatted).toContain('at test');
     });
 
     it('应该处理null/undefined错误', () => {
