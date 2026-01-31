@@ -1,6 +1,4 @@
-import { WebhookManager } from '../../lib/utils/webhook.js';
-
-const webhookManager = new WebhookManager();
+import webhookManager from '../../lib/utils/webhook.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

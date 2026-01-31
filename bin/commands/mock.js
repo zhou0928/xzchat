@@ -1,6 +1,4 @@
-import { MockManager } from '../../lib/utils/mock.js';
-
-const mockManager = new MockManager();
+import mockManager from '../../lib/utils/mock.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

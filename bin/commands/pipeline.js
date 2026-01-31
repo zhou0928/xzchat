@@ -1,6 +1,4 @@
-import { PipelineManager } from '../../lib/utils/pipeline.js';
-
-const pipelineManager = new PipelineManager();
+import pipelineManager from '../../lib/utils/pipeline.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

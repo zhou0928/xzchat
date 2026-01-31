@@ -1,6 +1,4 @@
-import { ArchiveManager } from '../../lib/utils/archive.js';
-
-const archiveManager = new ArchiveManager();
+import archiveManager from '../../lib/utils/archive.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

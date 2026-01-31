@@ -1,6 +1,4 @@
-import { CoverageManager } from '../../lib/utils/coverage.js';
-
-const coverageManager = new CoverageManager();
+import coverageManager from '../../lib/utils/coverage.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

@@ -1,6 +1,4 @@
-import { ChangelogManager } from '../../lib/utils/changelog.js';
-
-const changelogManager = new ChangelogManager();
+import changelogManager from '../../lib/utils/changelog.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

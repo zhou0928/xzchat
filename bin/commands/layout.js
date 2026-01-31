@@ -1,6 +1,4 @@
-import { LayoutManager } from '../../lib/utils/layout.js';
-
-const layoutManager = new LayoutManager();
+import layoutManager from '../../lib/utils/layout.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

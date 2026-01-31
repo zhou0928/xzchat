@@ -1,6 +1,4 @@
-import { FixtureManager } from '../../lib/utils/fixture.js';
-
-const fixtureManager = new FixtureManager();
+import fixtureManager from '../../lib/utils/fixture.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

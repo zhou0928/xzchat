@@ -1,6 +1,4 @@
-import { ReleaseNotesManager } from '../../lib/utils/release-notes.js';
-
-const releaseNotesManager = new ReleaseNotesManager();
+import releaseNotesManager from '../../lib/utils/release-notes.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

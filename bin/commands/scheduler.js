@@ -1,6 +1,4 @@
-import { SchedulerManager } from '../../lib/utils/scheduler.js';
-
-const schedulerManager = new SchedulerManager();
+import schedulerManager from '../../lib/utils/scheduler.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

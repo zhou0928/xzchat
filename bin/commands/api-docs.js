@@ -1,6 +1,4 @@
-import { ApiDocsManager } from '../../lib/utils/api-docs.js';
-
-const apiDocsManager = new ApiDocsManager();
+import apiDocsManager from '../../lib/utils/api-docs.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

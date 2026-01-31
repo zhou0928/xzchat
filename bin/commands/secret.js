@@ -1,6 +1,4 @@
-import { SecretManager } from '../../lib/utils/secret.js';
-
-const secretManager = new SecretManager();
+import secretManager from '../../lib/utils/secret.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

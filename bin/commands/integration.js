@@ -1,6 +1,4 @@
-import { IntegrationManager } from '../../lib/utils/integration.js';
-
-const integrationManager = new IntegrationManager();
+import integrationManager from '../../lib/utils/integration.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

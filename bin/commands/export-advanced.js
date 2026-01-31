@@ -1,6 +1,4 @@
-import { ExportAdvancedManager } from '../../lib/utils/export-advanced.js';
-
-const exportManager = new ExportAdvancedManager();
+import exportManager from '../../lib/utils/export-advanced.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

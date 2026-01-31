@@ -1,6 +1,4 @@
-import { TestRunnerManager } from '../../lib/utils/test-runner.js';
-
-const testRunner = new TestRunnerManager();
+import testRunner from '../../lib/utils/test-runner.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

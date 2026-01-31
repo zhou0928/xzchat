@@ -1,6 +1,4 @@
-import { ReviewManager } from '../../lib/utils/review.js';
-
-const reviewManager = new ReviewManager();
+import reviewManager from '../../lib/utils/review.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

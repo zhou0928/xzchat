@@ -1,6 +1,5 @@
-import { NotificationManager } from '../../lib/utils/notification.js';
 
-const notificationManager = new NotificationManager();
+import notificationManager from '../../lib/utils/notification.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

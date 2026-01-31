@@ -1,6 +1,4 @@
-import { DocsManager } from '../../lib/utils/docs.js';
-
-const docsManager = new DocsManager();
+import docsManager from '../../lib/utils/docs.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

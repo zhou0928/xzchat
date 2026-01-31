@@ -1,6 +1,4 @@
-import { ImportManager } from '../../lib/utils/import.js';
-
-const importManager = new ImportManager();
+import importManager from '../../lib/utils/import.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

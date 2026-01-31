@@ -1,6 +1,4 @@
-import { ThemeCustomManager } from '../../lib/utils/theme-custom.js';
-
-const themeCustomManager = new ThemeCustomManager();
+import themeCustomManager from '../../lib/utils/theme-custom.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;

@@ -1,6 +1,4 @@
-import { AuditManager } from '../../lib/utils/audit.js';
-
-const auditManager = new AuditManager();
+import auditManager from '../../lib/utils/audit.js';
 
 async function handle(args, context) {
   const [action, ...params] = args;
