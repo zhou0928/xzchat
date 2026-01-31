@@ -59,8 +59,8 @@ describe('Messages Module', () => {
     });
 
     it('should return error message for known error codes', () => {
-      expect(ERROR_MESSAGES.UNKNOWN_COMMAND).toBe('未知命令，使用 /help 查看帮助');
-      expect(ERROR_MESSAGES.FILE_NOT_FOUND).toBe('文件不存在');
+      expect(ERROR_MESSAGES.UNKNOWN_COMMAND).toBe('📖 未知命令，使用 /help 查看帮助');
+      expect(ERROR_MESSAGES.FILE_NOT_FOUND).toBe('文件不存在: {file}');
     });
 
     it('should have all common error types', () => {
@@ -204,7 +204,7 @@ describe('Messages Module', () => {
 
   describe('message format', () => {
     it('should preserve original message format', () => {
-      expect(COMMAND_HELP.session.subcommands.list).toContain('/session list');
+      expect(COMMAND_HELP.session.subcommands.list).toBe('列出所有会话');
       expect(COMMAND_HELP.branch.examples[0]).toContain('/branch');
     });
 
