@@ -1,4 +1,6 @@
-import searchManager from '../../lib/utils/search.js';
+import { SearchEngine } from '../../lib/utils/search.js';
+
+const searchEngine = new SearchEngine();
 
 export const handle = async (args, context) => {
   const [action, ...rest] = args;
@@ -55,7 +57,7 @@ async function handleQuery(args) {
 
   // 注意：实际需要从会话管理器获取会话数据
   // 这里返回示例
-  await searchManager.recordSearch(query, 0);
+  await searchEngine.recordSearch(query, 0);
 
   let output = `🔍 搜索: "${query}"\n\n`;
   output += `提示: 实际搜索需要从会话管理器获取数据\n\n`;
@@ -73,7 +75,7 @@ async function handleQuery(args) {
 
 async function handleHistory(limit) {
   limit = parseInt(limit) || 20;
-  const history = await searchManager.getHistory(limit);
+  const history = await searchEngine.getHistory(limit);
   
   let output = '📋 搜索历史\n\n';
   
@@ -93,7 +95,7 @@ async function handleHistory(limit) {
 
 async function handlePopular(limit) {
   limit = parseInt(limit) || 10;
-  const popular = await searchManager.getPopularSearches(limit);
+  const popular = await searchEngine.getPopularSearches(limit);
   
   let output = '🔥 热门搜索\n\n';
   
@@ -114,7 +116,7 @@ async function handleSuggest(prefix) {
     return '❌ 请指定前缀\n用法: /search suggest <前缀>';
   }
 
-  const suggestions = await searchManager.getSuggestions(prefix);
+  const suggestions = await searchEngine.getSuggestions(prefix);
   
   let output = `💡 搜索建议: "${prefix}"\n\n`;
   
@@ -132,18 +134,18 @@ async function handleSuggest(prefix) {
 
 async function handleIndex() {
   // 注意：实际需要从会话管理器获取会话数据
-  await searchManager.buildIndex([]);
+  await searchEngine.buildIndex([]);
   
   return `✅ 搜索索引已重建`;
 }
 
 async function handleClear() {
-  await searchManager.clearHistory();
+  await searchEngine.clearHistory();
   return `✅ 搜索历史已清除`;
 }
 
 async function handleStats() {
-  const stats = await searchManager.getStats();
+  const stats = await searchEngine.getStats();
   
   let output = '📊 搜索统计\n\n';
   output += `总搜索次数: ${stats.totalSearches}\n`;
