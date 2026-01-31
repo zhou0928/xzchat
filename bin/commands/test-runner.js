@@ -1,4 +1,4 @@
-const TestRunnerManager = require('../../lib/utils/test-runner');
+import { TestRunnerManager } from '../../lib/utils/test-runner.js';
 
 const testRunner = new TestRunnerManager();
 

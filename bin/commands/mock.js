@@ -1,4 +1,4 @@
-const MockManager = require('../../lib/utils/mock');
+import { MockManager } from '../../lib/utils/mock.js';
 
 const mockManager = new MockManager();
 

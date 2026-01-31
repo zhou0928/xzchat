@@ -1,4 +1,4 @@
-const ArchiveManager = require('../../lib/utils/archive');
+import { ArchiveManager } from '../../lib/utils/archive.js';
 
 const archiveManager = new ArchiveManager();
 

@@ -1,4 +1,4 @@
-const SchedulerManager = require('../../lib/utils/scheduler');
+import { SchedulerManager } from '../../lib/utils/scheduler.js';
 
 const schedulerManager = new SchedulerManager();
 

@@ -1,4 +1,4 @@
-const AuditManager = require('../../lib/utils/audit');
+import { AuditManager } from '../../lib/utils/audit.js';
 
 const auditManager = new AuditManager();
 

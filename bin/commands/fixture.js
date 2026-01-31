@@ -1,4 +1,4 @@
-const FixtureManager = require('../../lib/utils/fixture');
+import { FixtureManager } from '../../lib/utils/fixture.js';
 
 const fixtureManager = new FixtureManager();
 

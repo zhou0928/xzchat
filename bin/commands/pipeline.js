@@ -1,4 +1,4 @@
-const PipelineManager = require('../../lib/utils/pipeline');
+import { PipelineManager } from '../../lib/utils/pipeline.js';
 
 const pipelineManager = new PipelineManager();
 

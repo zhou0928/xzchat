@@ -1,4 +1,4 @@
-const IntegrationManager = require('../../lib/utils/integration');
+import { IntegrationManager } from '../../lib/utils/integration.js';
 
 const integrationManager = new IntegrationManager();
 

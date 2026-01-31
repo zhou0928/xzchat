@@ -1,4 +1,4 @@
-const ImportManager = require('../../lib/utils/import');
+import { ImportManager } from '../../lib/utils/import.js';
 
 const importManager = new ImportManager();
 

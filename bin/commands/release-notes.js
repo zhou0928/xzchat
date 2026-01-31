@@ -1,4 +1,4 @@
-const ReleaseNotesManager = require('../../lib/utils/release-notes');
+import { ReleaseNotesManager } from '../../lib/utils/release-notes.js';
 
 const releaseNotesManager = new ReleaseNotesManager();
 

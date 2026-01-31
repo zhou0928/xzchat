@@ -1,4 +1,4 @@
-const CoverageManager = require('../../lib/utils/coverage');
+import { CoverageManager } from '../../lib/utils/coverage.js';
 
 const coverageManager = new CoverageManager();
 

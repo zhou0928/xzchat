@@ -1,4 +1,4 @@
-const SecretManager = require('../../lib/utils/secret');
+import { SecretManager } from '../../lib/utils/secret.js';
 
 const secretManager = new SecretManager();
 

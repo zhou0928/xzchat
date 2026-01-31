@@ -1,4 +1,4 @@
-const DocsManager = require('../../lib/utils/docs');
+import { DocsManager } from '../../lib/utils/docs.js';
 
 const docsManager = new DocsManager();
 

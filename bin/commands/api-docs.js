@@ -1,4 +1,4 @@
-const ApiDocsManager = require('../../lib/utils/api-docs');
+import { ApiDocsManager } from '../../lib/utils/api-docs.js';
 
 const apiDocsManager = new ApiDocsManager();
 

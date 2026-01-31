@@ -1,4 +1,4 @@
-const ExportAdvancedManager = require('../../lib/utils/export-advanced');
+import { ExportAdvancedManager } from '../../lib/utils/export-advanced.js';
 
 const exportManager = new ExportAdvancedManager();
 

@@ -1,4 +1,4 @@
-const WebhookManager = require('../../lib/utils/webhook');
+import { WebhookManager } from '../../lib/utils/webhook.js';
 
 const webhookManager = new WebhookManager();
 

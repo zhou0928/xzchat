@@ -1,4 +1,4 @@
-const LayoutManager = require('../../lib/utils/layout');
+import { LayoutManager } from '../../lib/utils/layout.js';
 
 const layoutManager = new LayoutManager();
 

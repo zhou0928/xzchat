@@ -1,4 +1,4 @@
-const NotificationManager = require('../../lib/utils/notification');
+import { NotificationManager } from '../../lib/utils/notification.js';
 
 const notificationManager = new NotificationManager();
 

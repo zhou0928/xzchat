@@ -1,4 +1,4 @@
-const ChangelogManager = require('../../lib/utils/changelog');
+import { ChangelogManager } from '../../lib/utils/changelog.js';
 
 const changelogManager = new ChangelogManager();
 

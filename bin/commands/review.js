@@ -1,4 +1,4 @@
-const ReviewManager = require('../../lib/utils/review');
+import { ReviewManager } from '../../lib/utils/review.js';
 
 const reviewManager = new ReviewManager();
 

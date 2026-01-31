@@ -1,4 +1,4 @@
-const ThemeCustomManager = require('../../lib/utils/theme-custom');
+import { ThemeCustomManager } from '../../lib/utils/theme-custom.js';
 
 const themeCustomManager = new ThemeCustomManager();
 
