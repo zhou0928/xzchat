@@ -234,4 +234,4 @@ fonts格式: {"family":"Arial","sizes":{"small":"12px"}}`
   };
 }
 
-module.exports = { handle };
+export { handle };

@@ -207,4 +207,4 @@ stages格式: [{"id":"s1","name":"构建","type":"build","config":{}}]`
   };
 }
 
-module.exports = { handle };
+export { handle };

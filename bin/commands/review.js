@@ -197,4 +197,4 @@ function showHelp() {
   };
 }
 
-module.exports = { handle };
+export { handle };

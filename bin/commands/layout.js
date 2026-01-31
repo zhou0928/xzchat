@@ -295,4 +295,4 @@ components格式: [{"id":"c1","type":"panel","position":{...}}]`
   };
 }
 
-module.exports = { handle };
+export { handle };

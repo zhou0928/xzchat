@@ -158,4 +158,4 @@ tests格式: [{"name":"test1","fn":"function(){...}"}]`
   };
 }
 
-module.exports = { handle };
+export { handle };

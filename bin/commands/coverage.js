@@ -117,4 +117,4 @@ files格式: [{"path":"app.js","statements":100,"coveredStatements":80}]`
   };
 }
 
-module.exports = { handle };
+export { handle };
