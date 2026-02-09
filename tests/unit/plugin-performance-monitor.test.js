@@ -8,7 +8,10 @@ import fs from 'fs/promises';
 import path from 'path';
 
 // Mock fs module
-vi.mock('fs/promises');
+vi.mock('fs/promises', () => ({
+  readFile: vi.fn(() => Promise.reject({ code: 'ENOENT' })),
+  writeFile: vi.fn(() => Promise.resolve())
+}));
 vi.mock('fs', () => ({
   existsSync: vi.fn(() => false)
 }));

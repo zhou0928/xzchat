@@ -37,8 +37,8 @@ describe('Plugin Errors', () => {
       const json = error.toJSON();
 
       expect(json.name).toBe('PluginLoadError');
-      expect(json.pluginId).toBe('test-plugin');
-      expect(json.details).toBe('File not found');
+      expect(json.details.pluginId).toBe('test-plugin');
+      expect(json.details.reason).toBe('File not found');
     });
   });
 
