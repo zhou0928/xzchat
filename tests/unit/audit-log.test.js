@@ -87,7 +87,7 @@ describe('AuditLogEntry', () => {
     const entry = AuditLogEntry.fromJSON(json);
 
     expect(entry.operation).toBe(OperationType.API_KEY_CREATE);
-    expect(userId).toBe('user123');
+    expect(entry.userId).toBe('user123');
   });
 });
 
@@ -353,7 +353,7 @@ describe('工厂函数', () => {
 
   it('创建审计日志引擎时应该使用自定义选项', () => {
     const engine = createAuditLogger({
-      maxFileSize: 5 * 1024 * 1024,
+      maxFileSize: 5, // 5MB
       retentionDays: 30
     });
 

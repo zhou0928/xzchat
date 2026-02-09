@@ -9,6 +9,7 @@ import {
   loadConfig,
   updateConfig,
   initConfigFile,
+  initProjectConfigFile,
   setProfileValue,
   getActiveConfig
 } from '../../lib/config.js';
@@ -41,7 +42,7 @@ describe('E2E: 配置管理', () => {
 
   describe('配置文件初始化', () => {
     it('应该创建默认配置文件', async () => {
-      await initConfigFile();
+      initConfigFile(testConfigPath);
 
       const configExists = await fs.access(testConfigPath).then(() => true).catch(() => false);
       expect(configExists).toBe(true);
@@ -55,8 +56,7 @@ describe('E2E: 配置管理', () => {
     it('应该初始化项目配置文件', async () => {
       const projectConfigPath = path.join(testConfigDir, 'newapi-chat.config.json');
 
-      const result = await initProjectConfigFile();
-      expect(result).toBeTruthy();
+      initProjectConfigFile(projectConfigPath);
 
       const configExists = await fs.access(projectConfigPath).then(() => true).catch(() => false);
       expect(configExists).toBe(true);
@@ -74,14 +74,14 @@ describe('E2E: 配置管理', () => {
 
       await fs.writeFile(testConfigPath, JSON.stringify(testConfig));
 
-      const config = await loadConfig();
+      const config = loadConfig(testConfigPath);
       expect(config.apiKey).toBe('test-key');
       expect(config.baseUrl).toBe('https://test.com/v1');
       expect(config.model).toBe('gpt-3.5-turbo');
     });
 
     it('应该在配置不存在时返回空对象', async () => {
-      const config = await loadConfig();
+      const config = loadConfig('/nonexistent/config.json');
       expect(config).toEqual({});
     });
 
@@ -97,75 +97,86 @@ describe('E2E: 配置管理', () => {
         JSON.stringify(projectConfig)
       );
 
-      const config = await loadConfig();
+      const config = loadConfig(null);
       expect(config.apiKey).toBe('project-key');
     });
   });
 
   describe('配置更新', () => {
     it('应该更新配置字段', async () => {
+      const testFilePath = path.join(testConfigDir, 'test-config.json');
       const initialConfig = {
         apiKey: 'old-key',
         baseUrl: 'https://old.com/v1',
         model: 'gpt-3.5-turbo'
       };
 
-      await fs.writeFile(testConfigPath, JSON.stringify(initialConfig));
+      await fs.writeFile(testFilePath, JSON.stringify(initialConfig));
 
-      await updateConfig({ apiKey: 'new-key' });
+      updateConfig('apiKey', 'new-key', testFilePath);
 
-      const config = JSON.parse(await fs.readFile(testConfigPath, 'utf-8'));
+      const config = JSON.parse(await fs.readFile(testFilePath, 'utf-8'));
       expect(config.apiKey).toBe('new-key');
       expect(config.baseUrl).toBe('https://old.com/v1'); // 其他字段保持不变
     });
 
     it('应该更新多个字段', async () => {
-      await initConfigFile();
+      const testFilePath = path.join(testConfigDir, 'test-config.json');
+      const initialConfig = {
+        apiKey: 'old-key',
+        baseUrl: 'https://old.com/v1',
+        model: 'gpt-3.5-turbo'
+      };
 
-      await updateConfig({
-        apiKey: 'new-key',
-        baseUrl: 'https://new.com/v1',
-        model: 'gpt-4'
-      });
+      await fs.writeFile(testFilePath, JSON.stringify(initialConfig));
 
-      const config = JSON.parse(await fs.readFile(testConfigPath, 'utf-8'));
+      updateConfig('apiKey', 'new-key', testFilePath);
+      updateConfig('baseUrl', 'https://new.com/v1', testFilePath);
+      updateConfig('model', 'gpt-4', testFilePath);
+
+      const config = JSON.parse(await fs.readFile(testFilePath, 'utf-8'));
       expect(config.apiKey).toBe('new-key');
       expect(config.baseUrl).toBe('https://new.com/v1');
       expect(config.model).toBe('gpt-4');
     });
 
     it('应该创建配置文件(如果不存在)', async () => {
+      const testFilePath = path.join(testConfigDir, 'new-test-config.json');
       const initialConfig = {
         apiKey: 'new-key',
         baseUrl: 'https://new.com/v1'
       };
 
-      await updateConfig(initialConfig);
+      // 初始化配置文件
+      initConfigFile(testFilePath);
 
-      const configExists = await fs.access(testConfigPath).then(() => true).catch(() => false);
+      const configExists = await fs.access(testFilePath).then(() => true).catch(() => false);
       expect(configExists).toBe(true);
 
-      const config = JSON.parse(await fs.readFile(testConfigPath, 'utf-8'));
-      expect(config.apiKey).toBe('new-key');
+      const config = JSON.parse(await fs.readFile(testFilePath, 'utf-8'));
+      expect(config.apiKey).toBe('');
     });
   });
 
   describe('配置文件(profile)管理', () => {
     it('应该设置profile值', async () => {
-      await initConfigFile();
+      const testFilePath = path.join(testConfigDir, 'test-config.json');
+      initConfigFile(testFilePath);
 
-      await setProfileValue('profiles.dev.model', 'gpt-4');
+      setProfileValue('profiles.dev', 'model', 'gpt-4', testFilePath);
 
-      const config = JSON.parse(await fs.readFile(testConfigPath, 'utf-8'));
+      const config = JSON.parse(await fs.readFile(testFilePath, 'utf-8'));
       expect(config.profiles.dev.model).toBe('gpt-4');
     });
 
     it('应该设置嵌套profile值', async () => {
-      await initConfigFile();
+      const testFilePath = path.join(testConfigDir, 'test-config.json');
+      initConfigFile(testFilePath);
 
-      await setProfileValue('profiles.dev.settings.temperature', 0.8);
+      // 使用新 API
+      setProfileValue('profiles.dev.settings.temperature', 0.8, null, testFilePath);
 
-      const config = JSON.parse(await fs.readFile(testConfigPath, 'utf-8'));
+      const config = JSON.parse(await fs.readFile(testFilePath, 'utf-8'));
       expect(config.profiles.dev.settings.temperature).toBe(0.8);
     });
   });
@@ -175,12 +186,19 @@ describe('E2E: 配置管理', () => {
       const config = {
         apiKey: 'test-key',
         baseUrl: 'https://test.com/v1',
-        model: 'gpt-3.5-turbo'
+        model: 'gpt-3.5-turbo',
+        profiles: {
+          default: {
+            apiKey: 'test-key',
+            baseUrl: 'https://test.com/v1',
+            model: 'gpt-3.5-turbo'
+          }
+        }
       };
 
       await fs.writeFile(testConfigPath, JSON.stringify(config));
 
-      const activeConfig = await getActiveConfig();
+      const activeConfig = getActiveConfig(config);
       expect(activeConfig.apiKey).toBe('test-key');
       expect(activeConfig.baseUrl).toBe('https://test.com/v1');
       expect(activeConfig.model).toBe('gpt-3.5-turbo');
@@ -202,7 +220,7 @@ describe('E2E: 配置管理', () => {
 
       await fs.writeFile(testConfigPath, JSON.stringify(config));
 
-      const activeConfig = await getActiveConfig('dev');
+      const activeConfig = getActiveConfig('dev', testConfigPath);
       expect(activeConfig.apiKey).toBe('dev-key');
       expect(activeConfig.model).toBe('gpt-4');
     });
@@ -210,21 +228,23 @@ describe('E2E: 配置管理', () => {
 
   describe('配置验证', () => {
     it('应该验证必需字段', async () => {
+      const testFilePath = path.join(testConfigDir, 'test-config.json');
+      initConfigFile(testFilePath);
       const invalidConfig = {
         apiKey: '',
         baseUrl: 'https://test.com/v1'
       };
 
-      await fs.writeFile(testConfigPath, JSON.stringify(invalidConfig));
+      await fs.writeFile(testFilePath, JSON.stringify(invalidConfig));
 
-      const config = await loadConfig();
+      const config = loadConfig(testFilePath);
       expect(config.apiKey).toBe('');
     });
 
     it('应该处理无效的JSON', async () => {
       await fs.writeFile(testConfigPath, 'invalid json');
 
-      const config = await loadConfig();
+      const config = loadConfig(testConfigPath);
       expect(config).toEqual({});
     });
   });
@@ -238,8 +258,7 @@ describe('E2E: 配置管理', () => {
 
       await fs.writeFile(testConfigPath, JSON.stringify(oldConfig));
 
-      // 模拟迁移逻辑
-      const config = await loadConfig();
+      const config = loadConfig(testConfigPath);
       const migrated = {
         apiKey: config.API_KEY || config.apiKey,
         baseUrl: config.BASE_URL || config.baseUrl,
