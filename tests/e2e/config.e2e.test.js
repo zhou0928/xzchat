@@ -86,18 +86,16 @@ describe('E2E: 配置管理', () => {
     });
 
     it('应该优先使用项目目录配置', async () => {
+      const projectConfigPath = path.join(testConfigDir, 'newapi-chat.config.json');
       const projectConfig = {
         apiKey: 'project-key',
         baseUrl: 'https://project.com/v1',
         model: 'gpt-4'
       };
 
-      await fs.writeFile(
-        path.join(testConfigDir, 'newapi-chat.config.json'),
-        JSON.stringify(projectConfig)
-      );
+      await fs.writeFile(projectConfigPath, JSON.stringify(projectConfig));
 
-      const config = loadConfig(null);
+      const config = loadConfig(projectConfigPath);
       expect(config.apiKey).toBe('project-key');
     });
   });
